@@ -3,6 +3,8 @@ package TP_1.consigna1;
 /*
  * Para que el programe tome la fecha de nacimiento ingresada,
  * debe seguir el patron "yyyy-MM-dd" ej: "1997-12-23"
+ * NO se puede ingresar ni meses ni dias con solo 1 numero, 
+ * se deberá hacer utilizando "02", o "09"
  * 
  * La altura aunque se muestre en metros, usted debe ingresarla
  * en centimetros.
@@ -12,7 +14,7 @@ public class Main {
   public static void main(String[] args) {
     int dni_ingresar = 24504877;
     String nombre = "Franco";
-    String fecha_nacimiento = "1982-12-23";
+    String fecha_nacimiento = "1982-08-20";
     char sexo = 'm';
     int altura = 191;
     int peso = 90;
@@ -28,6 +30,7 @@ public class Main {
     mostrarDatos(sujeto_6);
     System.out.println("El IMC es de: " + sujeto_6.devolverIndiceMasaCorporal());
     System.out.println("Esta en forma: " + sujeto_6.estaEnForma());
+    System.out.println("Es su cumpleanios: " + sujeto_6.esSuCumpleanios());
     // System.out.println("\nInformacion del sujeto_2: ");
     // mostrarDatos(sujeto_2);
     // System.out.println("\nInformacion del sujeto_3: ");

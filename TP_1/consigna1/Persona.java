@@ -135,6 +135,9 @@ public class Persona{
 
     return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
   }
+  public LocalDate getFechaNacimientoLocalDate(){
+    return LocalDate.parse(this.fecha_nacimiento);
+  }
   public char getSexo(){return this.sexo;}
   public int getEdad(){return this.edad;}
   public int getPeso(){return this.peso;}
@@ -203,5 +206,18 @@ public class Persona{
 
     // Operador ternario, en caso de que el condicional se cumple, devolvera true, sino false
     return ((imc >= INDICE_MASA_CORPORAL_MINIMA) && (imc <= INDICE_MASA_CORPORAL_MAXIMA))?true : false;
+  }
+
+  /*
+   * Evalua la fecha de nacimiento de la persona y la compara con la fecha actual,
+   * devuelve Verdadero o falso 
+  */
+  public boolean esSuCumpleanios(){
+    LocalDate fecha_nac = getFechaNacimientoLocalDate();
+    LocalDate fecha_actual = LocalDate.now();
+    // En caso que coicidan los meses y los dias de ambas fechas, será su cumpleanios
+    return ((fecha_nac.getMonthValue() == fecha_actual.getMonthValue()) &&
+           (fecha_nac.getDayOfMonth() == fecha_actual.getDayOfMonth())) 
+           ? true : false;
   }
 }
