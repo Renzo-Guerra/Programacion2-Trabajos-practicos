@@ -4,6 +4,8 @@ package TP_1.consigna1;
 import java.time.LocalDate; 
 // Toman un LocalDate y devuelven una fecha (de tipo String) con x formato que le especifiquemos
 import java.time.format.DateTimeFormatter; 
+// Permite restar 2 fechas (Sacar la diferencia)
+import java.time.temporal.ChronoUnit;
 
 /*
  * LEER: al usar this.variable hacemos referencia al atributo del objeto en si.
@@ -25,19 +27,19 @@ public class Persona{
 
   // SOBRECARGA DE CONSTRUCTORES
   public Persona(int DNI){
-    this(DNI, "N N");
+    this(DNI, "");
   }
   public Persona(int DNI, String nombre){
-    this(DNI, nombre, "01/01/2000");
+    this(DNI, nombre, "");
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento){
-    this(DNI, nombre, fecha_nacimiento, 'f');
+    this(DNI, nombre, fecha_nacimiento, ' ');
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo){
-    this(DNI, nombre, fecha_nacimiento, sexo, 1);
+    this(DNI, nombre, fecha_nacimiento, sexo, 0);
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo, int altura){
-    this(DNI, nombre, fecha_nacimiento, sexo, altura, 1);
+    this(DNI, nombre, fecha_nacimiento, sexo, altura, 0);
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo, int altura, int peso){
     this.DNI = DNI;
@@ -47,7 +49,7 @@ public class Persona{
      * A futuro se implementará una metodo el cual a traves de una fecha,
      * devolvera la cantidad de años que pasaron.
     */
-    // this.edad = obtenerEdadAPartirDeFecha(this.fecha_nacimiento);
+    // setEdad();
     setSexo(sexo);
     setAltura(altura);
     setPeso(peso);
