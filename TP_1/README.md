@@ -39,7 +39,10 @@ Consigna: Implementar una clase llamada Persona con las siguientes característi
   * con DNI, nombre, apellido y Fecha de nacimiento….
 
 * La responsabilidad de la clase es la siguiente:
-  * Cálculo del índice de masa Corporal. Una persona sabe calcular cuál es su índice de masa corporal el cual es peso / altura2
+  * Cálculo del índice de masa Corporal. Una persona sabe calcular cuál es su índice de masa corporal el cual es:
+  ***
+      Indice de masa corporal = peso / (altura)^2
+  ***
 
   * Saber si está en forma. Está en forma si el índice de masa corporal se encuentra entre 18,5 y 25 (esto es solo un ejemplo para probar la funcionalidad).
   * Saber si está cumpliendo años.
