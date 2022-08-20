@@ -15,7 +15,7 @@ public class Main {
   public static void main(String[] args) {
     int dni_ingresar = 24504877;
     String nombre = "Franco";
-    String fecha_nacimiento = "1989-08-03"; // Ingresar "1999-2-4" estaria mal, "1999-2-03" MAL, "1999-02-3" MAL
+    String fecha_nacimiento = "2009-08-03"; // Ingresar "1999-2-4" estaria mal, "1999-2-03" MAL, "1999-02-3" MAL
     char sexo = 'm';
     int altura = 191;
     int peso = 90;
@@ -33,6 +33,7 @@ public class Main {
     System.out.println("Esta en forma: " + sujeto_6.estaEnForma());
     System.out.println("Es su cumpleanios: " + sujeto_6.esSuCumpleanios());
     System.out.println("Es mayor de edad: " + sujeto_6.esMayorDeEdad());
+    System.out.println("Puede votar: " + sujeto_6.puedeVotar());
     // System.out.println("\nInformacion del sujeto_2: ");
     // mostrarDatos(sujeto_2);
     // System.out.println("\nInformacion del sujeto_3: ");

@@ -221,13 +221,19 @@ public class Persona{
            ? true : false;
   }
   
-  /*
-   * Evalua la edad del usuario y determina si es (o no) mayor de edad. 
-  */
+  // Evalua la edad del usuario y determina si es (o no) mayor de edad. 
   public boolean esMayorDeEdad(){
     int edad = getEdad();
     final int MAYORIA_EDAD = 18;
 
     return (edad >= MAYORIA_EDAD)? true : false;
+  }
+
+  // Evalua la edad del usuario y determina si puede (o no) votar. 
+  public boolean puedeVotar(){
+    int edad = getEdad();
+    final int MINIMO_EDAD_VOTAR = 16;
+
+    return (edad >= MINIMO_EDAD_VOTAR)? true : false;
   }
 }
