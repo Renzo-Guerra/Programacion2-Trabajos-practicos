@@ -1,5 +1,10 @@
 package TP_1.consigna1;
 
+// Permite el uso del objeto LocalDate
+import java.time.LocalDate; 
+// Toman un LocalDate y devuelven una fecha (de tipo String) con x formato que le especifiquemos
+import java.time.format.DateTimeFormatter; 
+
 /*
  * LEER: al usar this.variable hacemos referencia al atributo del objeto en si.
  * ej: this.nombre = nombre;
@@ -12,15 +17,14 @@ public class Persona{
   // Variables:
   private int DNI;    
   private String nombre;
-  private String fecha_nacimiento;
+  private String fecha_nacimiento;   // dd/mm/yyyy
   // private int edad;
-  private char sexo;  // M | F
+  private char sexo;  // m | f
   private int altura; // La altura es en centimetros
   private int peso; // El peso es en kilos
 
   // Default values:
   private final String default_nombre = "N N";
-  private final String default_fecha_nacimiento = "01/01/2000";
   private final char default_sexo = 'f';
   private final int default_altura = 1;
   private final int default_peso = 1;
@@ -66,11 +70,17 @@ public class Persona{
   }
 
   public void setFechaNacimiento(String fecha_nacimiento){
-    if(fecha_nacimiento.equals("")){
+    // Formato que se usará para guardar las fechas
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd MM yyyy");
+    // Por default, se utilizará la fecha 01/01/2000
+    final String default_fecha_nacimiento = LocalDate.of(2000, 1, 1).format(formato); 
+
+    // Comprobamos que la fecha ingresada no sea una cadena vacia
+    if(!fecha_nacimiento.equals("")){
+      this.fecha_nacimiento = fecha_nacimiento.formatted(formato);
+    }else{
       System.out.println("Se asigno el value por defecto a fecha de nacimiento, ya que [" + fecha_nacimiento + "] es invalido.");
       this.fecha_nacimiento = default_fecha_nacimiento;
-    }else{
-      this.fecha_nacimiento = fecha_nacimiento;
     }
   }
   
