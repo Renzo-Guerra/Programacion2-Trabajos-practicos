@@ -39,6 +39,7 @@ public class Main {
     System.out.println("DNI: " + sujeto.getDNI());
     System.out.println("Nombre: " + sujeto.getNombre());
     System.out.println("Fecha de nacimiento: " + sujeto.getFechaNacimiento());
+    System.out.println("Edad: " + sujeto.getEdad());
     System.out.println("Sexo: " + sujeto.getSexo());
     System.out.println("Altura: " + sujeto.getAltura());
     System.out.println("Peso: " + sujeto.getPeso());

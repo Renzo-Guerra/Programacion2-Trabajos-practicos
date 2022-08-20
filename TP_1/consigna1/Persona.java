@@ -4,8 +4,6 @@ package TP_1.consigna1;
 import java.time.LocalDate; 
 // Toman un LocalDate y devuelven una fecha (de tipo String) con x formato que le especifiquemos
 import java.time.format.DateTimeFormatter; 
-// Permite restar 2 fechas (Sacar la diferencia)
-import java.time.temporal.ChronoUnit;
 
 /*
  * LEER: al usar this.variable hacemos referencia al atributo del objeto en si.
@@ -48,11 +46,7 @@ public class Persona{
     this.DNI = DNI;
     setNombre(nombre);
     setFechaNacimiento(fecha_nacimiento);
-    /*
-     * A futuro se implementará una metodo el cual a traves de una fecha,
-     * devolvera la cantidad de años que pasaron.
-    */
-    // setEdad();
+    setEdad();
     setSexo(sexo);
     setAltura(altura);
     setPeso(peso);
@@ -101,6 +95,37 @@ public class Persona{
     }
   }
   
+  private int calcularAnios(){
+    LocalDate fecha_actual = LocalDate.now();
+    LocalDate fecha_nac_usuario = LocalDate.parse(this.fecha_nacimiento);
+    int edad_final = 0;
+
+    if(fecha_actual.getYear() > fecha_nac_usuario.getYear()){ // Verificamos que el usuario no tenga 0 años
+      edad_final = fecha_actual.getYear() - fecha_nac_usuario.getYear(); // Obtenemos la cantidad de años entre ambas fechas
+      if(fecha_actual.getMonthValue() < fecha_nac_usuario.getMonthValue()){
+        edad_final++;
+      }else{
+        /*
+        * En caso de que el mes de la fecha de nacimiento del usuario coincida con el mes actual, debemos
+        * verificar cual de los 2 dias de la fecha es mayor, para sumarle 1 año en caso de que el dia de
+        * la fecha de nacimiento del usuario sea mayor a el dia de la fecha actual, y tambien sumarle 1 año
+        * en caso de que ambos dias de la fecha coincidan, 
+        */ 
+        if(fecha_actual.getMonthValue() == fecha_nac_usuario.getMonthValue()){
+          if(fecha_actual.getDayOfMonth() <= fecha_nac_usuario.getDayOfMonth()){
+            edad_final++;
+          }
+        }
+      }
+    }
+
+    return edad_final;
+  }
+
+  public void setEdad(){
+    this.edad = calcularAnios();
+  }
+
   public void setPeso(int peso){
     final int default_peso = 1;
 
@@ -136,6 +161,7 @@ public class Persona{
     return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
   }
   public char getSexo(){return this.sexo;}
+  public int getEdad(){return this.edad;}
   public int getPeso(){return this.peso;}
   public int getAltura(){return this.altura;}
 }
