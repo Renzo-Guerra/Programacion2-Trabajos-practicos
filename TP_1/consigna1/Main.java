@@ -1,10 +1,15 @@
 package TP_1.consigna1;
 
+/*
+ * Para que el programe tome la fecha de nacimiento ingresada,
+ * debe seguir el patron "yyyy-MM-dd" ej: "1997-12-23"
+*/
+
 public class Main {
   public static void main(String[] args) {
     int dni_ingresar = 24504877;
     String nombre = "Franco";
-    String fecha_nacimiento = "3/5/1982";
+    String fecha_nacimiento = "1982-12-23";
     char sexo = 'm';
     int altura = 180;
     int peso = 89;
@@ -34,6 +39,7 @@ public class Main {
     System.out.println("DNI: " + sujeto.getDNI());
     System.out.println("Nombre: " + sujeto.getNombre());
     System.out.println("Fecha de nacimiento: " + sujeto.getFechaNacimiento());
+    System.out.println("Edad: " + sujeto.getEdad());
     System.out.println("Sexo: " + sujeto.getSexo());
     System.out.println("Altura: " + sujeto.getAltura());
     System.out.println("Peso: " + sujeto.getPeso());

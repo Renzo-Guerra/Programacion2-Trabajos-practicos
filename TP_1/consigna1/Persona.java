@@ -11,6 +11,9 @@ import java.time.format.DateTimeFormatter;
  * el "this.nombre" hace referencia a la direccion de memoria del atributo nombre de ese objeto, 
  * al cual le estoy asignado el valor de "nombre".
  * 
+ * LocalDate.parse(String) solo funciona con Strings que siguen este patron "yyyy/MM/dd", 
+ * es por eso que se importo "DateTimeFormatter", para asegurarnos que todas las fechas
+ * sigan ese patron
 */
 
 public class Persona{
@@ -18,36 +21,32 @@ public class Persona{
   private int DNI;    
   private String nombre;
   private String fecha_nacimiento;   // dd/mm/yyyy
-  // private int edad;
+  private int edad;
   private char sexo;  // m | f
   private int altura; // La altura es en centimetros
   private int peso; // El peso es en kilos
 
   // SOBRECARGA DE CONSTRUCTORES
   public Persona(int DNI){
-    this(DNI, "N N");
+    this(DNI, "");
   }
   public Persona(int DNI, String nombre){
-    this(DNI, nombre, "01/01/2000");
+    this(DNI, nombre, "");
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento){
-    this(DNI, nombre, fecha_nacimiento, 'f');
+    this(DNI, nombre, fecha_nacimiento, ' ');
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo){
-    this(DNI, nombre, fecha_nacimiento, sexo, 1);
+    this(DNI, nombre, fecha_nacimiento, sexo, 0);
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo, int altura){
-    this(DNI, nombre, fecha_nacimiento, sexo, altura, 1);
+    this(DNI, nombre, fecha_nacimiento, sexo, altura, 0);
   }
   public Persona(int DNI, String nombre, String fecha_nacimiento, char sexo, int altura, int peso){
     this.DNI = DNI;
     setNombre(nombre);
     setFechaNacimiento(fecha_nacimiento);
-    /*
-     * A futuro se implementará una metodo el cual a traves de una fecha,
-     * devolvera la cantidad de años que pasaron.
-    */
-    // this.edad = obtenerEdadAPartirDeFecha(this.fecha_nacimiento);
+    setEdad();
     setSexo(sexo);
     setAltura(altura);
     setPeso(peso);
@@ -67,7 +66,7 @@ public class Persona{
 
   public void setFechaNacimiento(String fecha_nacimiento){
     // Formato que se usará para guardar las fechas
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd MM yyyy");
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     // Por default, se utilizará la fecha 01/01/2000
     final String default_fecha_nacimiento = LocalDate.of(2000, 1, 1).format(formato); 
 
@@ -79,7 +78,7 @@ public class Persona{
       this.fecha_nacimiento = default_fecha_nacimiento;
     }
   }
-  
+
   public void setSexo(char sexo){
     final char default_sexo = 'f';
 
@@ -94,6 +93,37 @@ public class Persona{
         break;
       }
     }
+  }
+  
+  private int calcularAnios(){
+    LocalDate fecha_actual = LocalDate.now();
+    LocalDate fecha_nac_usuario = LocalDate.parse(this.fecha_nacimiento);
+    int edad_final = 0;
+
+    if(fecha_actual.getYear() > fecha_nac_usuario.getYear()){ // Verificamos que el usuario no tenga 0 años
+      edad_final = fecha_actual.getYear() - fecha_nac_usuario.getYear(); // Obtenemos la cantidad de años entre ambas fechas
+      if(fecha_actual.getMonthValue() < fecha_nac_usuario.getMonthValue()){
+        edad_final++;
+      }else{
+        /*
+        * En caso de que el mes de la fecha de nacimiento del usuario coincida con el mes actual, debemos
+        * verificar cual de los 2 dias de la fecha es mayor, para sumarle 1 año en caso de que el dia de
+        * la fecha de nacimiento del usuario sea mayor a el dia de la fecha actual, y tambien sumarle 1 año
+        * en caso de que ambos dias de la fecha coincidan, 
+        */ 
+        if(fecha_actual.getMonthValue() == fecha_nac_usuario.getMonthValue()){
+          if(fecha_actual.getDayOfMonth() <= fecha_nac_usuario.getDayOfMonth()){
+            edad_final++;
+          }
+        }
+      }
+    }
+
+    return edad_final;
+  }
+
+  public void setEdad(){
+    this.edad = calcularAnios();
   }
 
   public void setPeso(int peso){
@@ -120,8 +150,18 @@ public class Persona{
   // Getters:
   public int getDNI(){return this.DNI;}
   public String getNombre(){return this.nombre;}
-  public String getFechaNacimiento(){return this.fecha_nacimiento;}
+  public String getFechaNacimiento(){
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    /* 
+    * Para usar el formato, la fecha a formatear debe ser de tipo LocalDate, por eso
+    * usamos una variable auxiliar (fecha_devolver)
+    */
+    LocalDate fecha_devolver = LocalDate.parse(this.fecha_nacimiento); 
+
+    return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
+  }
   public char getSexo(){return this.sexo;}
+  public int getEdad(){return this.edad;}
   public int getPeso(){return this.peso;}
   public int getAltura(){return this.altura;}
 }
