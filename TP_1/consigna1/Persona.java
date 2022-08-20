@@ -191,4 +191,17 @@ public class Persona{
 
     return Float.parseFloat(formato1.format(resultado));
   }
+
+  /*
+  * Evalua el IMC de la persona y devuelve si está (o no) en forma.
+  * Para estar en forma, su imc debe estar entre el IMC minimo y maximo, o igualar alguno. 
+  */ 
+  public boolean estaEnForma(){
+    final float INDICE_MASA_CORPORAL_MINIMA = 18.5f;
+    final float INDICE_MASA_CORPORAL_MAXIMA = 25.f;
+    float imc = devolverIndiceMasaCorporal(); // Invocamos la funcion
+
+    // Operador ternario, en caso de que el condicional se cumple, devolvera true, sino false
+    return ((imc >= INDICE_MASA_CORPORAL_MINIMA) && (imc <= INDICE_MASA_CORPORAL_MAXIMA))?true : false;
+  }
 }

@@ -14,8 +14,8 @@ public class Main {
     String nombre = "Franco";
     String fecha_nacimiento = "1982-12-23";
     char sexo = 'm';
-    int altura = 180;
-    int peso = 89;
+    int altura = 191;
+    int peso = 90;
 
     // Persona sujeto_1 = new Persona(dni_ingresar);
     // Persona sujeto_2 = new Persona(dni_ingresar, nombre);
@@ -27,6 +27,7 @@ public class Main {
     System.out.println("\nInformacion del sujeto_6: ");
     mostrarDatos(sujeto_6);
     System.out.println("El IMC es de: " + sujeto_6.devolverIndiceMasaCorporal());
+    System.out.println("Esta en forma: " + sujeto_6.estaEnForma());
     // System.out.println("\nInformacion del sujeto_2: ");
     // mostrarDatos(sujeto_2);
     // System.out.println("\nInformacion del sujeto_3: ");
