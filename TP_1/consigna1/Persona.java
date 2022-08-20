@@ -13,6 +13,9 @@ import java.time.temporal.ChronoUnit;
  * el "this.nombre" hace referencia a la direccion de memoria del atributo nombre de ese objeto, 
  * al cual le estoy asignado el valor de "nombre".
  * 
+ * LocalDate.parse(String) solo funciona con Strings que siguen este patron "yyyy/MM/dd", 
+ * es por eso que se importo "DateTimeFormatter", para asegurarnos que todas las fechas
+ * sigan ese patron
 */
 
 public class Persona{
@@ -20,7 +23,7 @@ public class Persona{
   private int DNI;    
   private String nombre;
   private String fecha_nacimiento;   // dd/mm/yyyy
-  // private int edad;
+  private int edad;
   private char sexo;  // m | f
   private int altura; // La altura es en centimetros
   private int peso; // El peso es en kilos
@@ -69,7 +72,7 @@ public class Persona{
 
   public void setFechaNacimiento(String fecha_nacimiento){
     // Formato que se usará para guardar las fechas
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd MM yyyy");
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     // Por default, se utilizará la fecha 01/01/2000
     final String default_fecha_nacimiento = LocalDate.of(2000, 1, 1).format(formato); 
 
@@ -81,7 +84,7 @@ public class Persona{
       this.fecha_nacimiento = default_fecha_nacimiento;
     }
   }
-  
+
   public void setSexo(char sexo){
     final char default_sexo = 'f';
 
@@ -97,7 +100,7 @@ public class Persona{
       }
     }
   }
-
+  
   public void setPeso(int peso){
     final int default_peso = 1;
 
@@ -122,7 +125,16 @@ public class Persona{
   // Getters:
   public int getDNI(){return this.DNI;}
   public String getNombre(){return this.nombre;}
-  public String getFechaNacimiento(){return this.fecha_nacimiento;}
+  public String getFechaNacimiento(){
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    /* 
+    * Para usar el formato, la fecha a formatear debe ser de tipo LocalDate, por eso
+    * usamos una variable auxiliar (fecha_devolver)
+    */
+    LocalDate fecha_devolver = LocalDate.parse(this.fecha_nacimiento); 
+
+    return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
+  }
   public char getSexo(){return this.sexo;}
   public int getPeso(){return this.peso;}
   public int getAltura(){return this.altura;}
