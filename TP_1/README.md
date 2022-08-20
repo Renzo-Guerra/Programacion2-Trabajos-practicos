@@ -10,7 +10,8 @@ _Para cada uno de los siguientes problemas, implementarlos en Java._
 * Lectura:
   * [Manejo y uso de fechas](https://www.campusmvp.es/recursos/post/como-manejar-correctamente-fechas-en-java-el-paquete-java-time.aspx)
   * [Varias librerias para el manejo de fechas (Con ejemplos prácticos)](https://www.delftstack.com/es/howto/java/java-subtract-dates/#:~:text=Duration%20y%20java.-,time.,medianoche%20a%20la%20fecha%20local.)
-  * 
+  * [LIMITAR EL NÚMERO DE DECIMALES DE UN DOUBLE O UN FLOAT EN JAVA](https://programandoointentandolo.com/2017/11/limitar-numero-decimales-double-float-java.html)
+
 **Ejercicios:**
   1. [Persona](#persona)
   1. [Electrodomésticos](#electrodomésticos)
