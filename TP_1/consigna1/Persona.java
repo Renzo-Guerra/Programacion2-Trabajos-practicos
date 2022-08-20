@@ -220,4 +220,14 @@ public class Persona{
            (fecha_nac.getDayOfMonth() == fecha_actual.getDayOfMonth())) 
            ? true : false;
   }
+  
+  /*
+   * Evalua la edad del usuario y determina si es (o no) mayor de edad. 
+  */
+  public boolean esMayorDeEdad(){
+    int edad = getEdad();
+    final int MAYORIA_EDAD = 18;
+
+    return (edad >= MAYORIA_EDAD)? true : false;
+  }
 }
