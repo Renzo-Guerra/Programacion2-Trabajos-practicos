@@ -2,6 +2,16 @@
 
 _Para cada uno de los siguientes problemas, implementarlos en Java._
 
+**Links utiles que me ayudaron:**
+* Videos:
+  * [Java basics of the LocalDate, LocalTime, LocalDateTime, ZonedDateTime and the DateTimeFormatter](https://www.youtube.com/watch?v=0XgdX5hDL4U)
+  * [SOBRECARGA de CONSTRUCTORES en JAVA](https://www.youtube.com/watch?v=BJho0_xucw8)
+  * [Sobrecarga constructores en Java, this y toString()](https://www.youtube.com/watch?v=VV97abHxTNk)
+* Lectura:
+  * [Manejo y uso de fechas](https://www.campusmvp.es/recursos/post/como-manejar-correctamente-fechas-en-java-el-paquete-java-time.aspx)
+  * [Varias librerias para el manejo de fechas (Con ejemplos prácticos)](https://www.delftstack.com/es/howto/java/java-subtract-dates/#:~:text=Duration%20y%20java.-,time.,medianoche%20a%20la%20fecha%20local.)
+  * [LIMITAR EL NÚMERO DE DECIMALES DE UN DOUBLE O UN FLOAT EN JAVA](https://programandoointentandolo.com/2017/11/limitar-numero-decimales-double-float-java.html)
+
 **Ejercicios:**
   1. [Persona](#persona)
   1. [Electrodomésticos](#electrodomésticos)
@@ -30,7 +40,10 @@ Consigna: Implementar una clase llamada Persona con las siguientes característi
   * con DNI, nombre, apellido y Fecha de nacimiento….
 
 * La responsabilidad de la clase es la siguiente:
-  * Cálculo del índice de masa Corporal. Una persona sabe calcular cuál es su índice de masa corporal el cual es peso / altura2
+  * Cálculo del índice de masa Corporal. Una persona sabe calcular cuál es su índice de masa corporal el cual es:
+  ***
+      Indice de masa corporal = peso / (altura)^2
+  ***
 
   * Saber si está en forma. Está en forma si el índice de masa corporal se encuentra entre 18,5 y 25 (esto es solo un ejemplo para probar la funcionalidad).
   * Saber si está cumpliendo años.
