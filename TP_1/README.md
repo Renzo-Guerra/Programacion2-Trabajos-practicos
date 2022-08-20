@@ -8,8 +8,9 @@ _Para cada uno de los siguientes problemas, implementarlos en Java._
   * [SOBRECARGA de CONSTRUCTORES en JAVA](https://www.youtube.com/watch?v=BJho0_xucw8)
   * [Sobrecarga constructores en Java, this y toString()](https://www.youtube.com/watch?v=VV97abHxTNk)
 * Lectura:
-  * [Manejo y uso de fechas]( https://www.campusmvp.es/recursos/post/como-manejar-correctamente-fechas-en-java-el-paquete-java-time.aspx)
-
+  * [Manejo y uso de fechas](https://www.campusmvp.es/recursos/post/como-manejar-correctamente-fechas-en-java-el-paquete-java-time.aspx)
+  * [Varias librerias para el manejo de fechas (Con ejemplos prácticos)](https://www.delftstack.com/es/howto/java/java-subtract-dates/#:~:text=Duration%20y%20java.-,time.,medianoche%20a%20la%20fecha%20local.)
+  * 
 **Ejercicios:**
   1. [Persona](#persona)
   1. [Electrodomésticos](#electrodomésticos)
