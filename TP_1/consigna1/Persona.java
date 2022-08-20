@@ -23,12 +23,6 @@ public class Persona{
   private int altura; // La altura es en centimetros
   private int peso; // El peso es en kilos
 
-  // Default values:
-  private final String default_nombre = "N N";
-  private final char default_sexo = 'f';
-  private final int default_altura = 1;
-  private final int default_peso = 1;
-
   // SOBRECARGA DE CONSTRUCTORES
   public Persona(int DNI){
     this(DNI, "N N");
@@ -60,6 +54,8 @@ public class Persona{
   }
 
   public void setNombre(String nombre){
+    final String default_nombre = "N N";
+
     // Comparamos que el nombre ingresado no sea una cadena vacia
     if(nombre.equals("")){
       System.out.println("Se asigno el value por defecto a nombre, ya que [" + nombre + "] es invalido.");
@@ -85,6 +81,8 @@ public class Persona{
   }
   
   public void setSexo(char sexo){
+    final char default_sexo = 'f';
+
     switch(sexo){
       case 'f': case 'm': {
         this.sexo = sexo;
@@ -99,6 +97,8 @@ public class Persona{
   }
 
   public void setPeso(int peso){
+    final int default_peso = 1;
+
     if(peso <= 0){
       System.out.println("El peso ingresado [" + peso +  "] es invalido, se asigno el valor por defecto.");
       this.peso = default_peso;
@@ -108,6 +108,8 @@ public class Persona{
   }
 
   public void setAltura(int altura){
+    final int default_altura = 1;
+
     if(altura <= 0){
       System.out.println("La altura ingresada [" + altura +  "] es invalida, se asigno el valor por defecto.");
       this.altura = default_altura;
