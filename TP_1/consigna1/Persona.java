@@ -206,7 +206,7 @@ public class Persona{
   public boolean estaEnForma(){
     final float INDICE_MASA_CORPORAL_MINIMA = 18.5f;
     final float INDICE_MASA_CORPORAL_MAXIMA = 25.f;
-    float imc = devolverIndiceMasaCorporal(); // Invocamos la funcion
+    float imc = this.devolverIndiceMasaCorporal(); // Invocamos la funcion
 
     // Operador ternario, en caso de que el condicional se cumple, devolvera true, sino false
     return ((imc >= INDICE_MASA_CORPORAL_MINIMA) && (imc <= INDICE_MASA_CORPORAL_MAXIMA))?true : false;
@@ -217,7 +217,7 @@ public class Persona{
    * devuelve Verdadero o falso 
   */
   public boolean esSuCumpleanios(){
-    LocalDate fecha_nac = getFechaNacimientoLocalDate();
+    LocalDate fecha_nac = this.getFechaNacimientoLocalDate();
     LocalDate fecha_actual = LocalDate.now();
     // En caso que coicidan los meses y los dias de ambas fechas, será su cumpleanios
     return ((fecha_nac.getMonthValue() == fecha_actual.getMonthValue()) &&
@@ -227,7 +227,7 @@ public class Persona{
   
   // Evalua la edad del usuario y determina si es (o no) mayor de edad. 
   public boolean esMayorDeEdad(){
-    int edad = getEdad();
+    int edad = this.getEdad();
     final int MAYORIA_EDAD = 18;
 
     return (edad >= MAYORIA_EDAD)? true : false;
@@ -235,7 +235,7 @@ public class Persona{
 
   // Evalua la edad del usuario y determina si puede (o no) votar. 
   public boolean puedeVotar(){
-    int edad = getEdad();
+    int edad = this.getEdad();
     final int MINIMO_EDAD_VOTAR = 16;
 
     return (edad >= MINIMO_EDAD_VOTAR)? true : false;
