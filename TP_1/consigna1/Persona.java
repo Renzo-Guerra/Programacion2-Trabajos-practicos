@@ -15,6 +15,10 @@ import java.text.DecimalFormat;
  * LocalDate.parse(String) solo funciona con Strings que siguen este patron "yyyy/MM/dd", 
  * es por eso que se importo "DateTimeFormatter", para asegurarnos que todas las fechas
  * sigan ese patron
+ * 
+ * Debido a que la edad solo se puede actualizar en base a la fecha de nacimiento de la persona,
+ * esta SIEMPRE va a estar sincronizada, y cuando se cambie la fecha de nacimiento, automaticamente 
+ * se cambia la edad.
 */
 
 public class Persona{
@@ -235,5 +239,21 @@ public class Persona{
     final int MINIMO_EDAD_VOTAR = 16;
 
     return (edad >= MINIMO_EDAD_VOTAR)? true : false;
+  }
+
+  // Muestra la informacion del objeto
+  public void mostrarDatos(){
+    System.out.println("DNI: " + this.getDNI());
+    System.out.println("Nombre: " + this.getNombre());
+    System.out.println("Fecha de nacimiento: " + this.getFechaNacimiento());
+    System.out.println("Edad: " + this.getEdad());
+    System.out.println("Sexo: " + this.getSexo());
+    System.out.println("Altura: " + this.getAltura());
+    System.out.println("Peso: " + this.getPeso());
+    System.out.println("El IMC es de: " + this.devolverIndiceMasaCorporal());
+    System.out.println("Está en forma: " + this.estaEnForma());
+    System.out.println("Es su cumpleanios: " + this.esSuCumpleanios());
+    System.out.println("Es mayor de edad: " + this.esMayorDeEdad());
+    System.out.println("Puede votar: " + this.puedeVotar());
   }
 }
