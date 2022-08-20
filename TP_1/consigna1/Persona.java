@@ -4,7 +4,8 @@ package TP_1.consigna1;
 import java.time.LocalDate; 
 // Toman un LocalDate y devuelven una fecha (de tipo String) con x formato que le especifiquemos
 import java.time.format.DateTimeFormatter; 
-
+// Permite especificar la cantidad de decimales en un float
+import java.text.DecimalFormat;
 /*
  * LEER: al usar this.variable hacemos referencia al atributo del objeto en si.
  * ej: this.nombre = nombre;
@@ -14,6 +15,10 @@ import java.time.format.DateTimeFormatter;
  * LocalDate.parse(String) solo funciona con Strings que siguen este patron "yyyy/MM/dd", 
  * es por eso que se importo "DateTimeFormatter", para asegurarnos que todas las fechas
  * sigan ese patron
+ * 
+ * Debido a que la edad solo se puede actualizar en base a la fecha de nacimiento de la persona,
+ * esta SIEMPRE va a estar sincronizada, y cuando se cambie la fecha de nacimiento, automaticamente 
+ * se cambia la edad.
 */
 
 public class Persona{
@@ -23,7 +28,7 @@ public class Persona{
   private String fecha_nacimiento;   // dd/mm/yyyy
   private int edad;
   private char sexo;  // m | f
-  private int altura; // La altura es en centimetros
+  private float altura; // La altura es en metros
   private int peso; // El peso es en kilos
 
   // SOBRECARGA DE CONSTRUCTORES
@@ -94,7 +99,63 @@ public class Persona{
       }
     }
   }
-  
+
+  public void setEdad(){
+    this.edad = calcularAnios();
+  }
+
+  public void setPeso(int peso){
+    final int default_peso = 1;
+
+    if(peso <= 0){
+      System.out.println("El peso ingresado [" + peso +  "] es invalido, se asigno el valor por defecto.");
+      this.peso = default_peso;
+    }else{
+      this.peso = peso;
+    }
+  }
+
+  public void setAltura(int altura){
+    float altura_ingresada = ((float)altura)/100; // Transformamos los sentimetros a metros
+    final float default_altura = 1.00f;
+
+    if(altura <= 0){
+      System.out.println("La altura ingresada [" + altura +  "] es invalida, se asigno el valor por defecto.");
+      this.altura = default_altura;
+    }else{
+      this.altura = altura_ingresada;
+    }
+  }
+  // Getters:
+  public int getDNI(){return this.DNI;}
+  public String getNombre(){return this.nombre;}
+  public String getFechaNacimiento(){
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    /* 
+    * Para usar el formato, la fecha a formatear debe ser de tipo LocalDate, por eso
+    * usamos una variable auxiliar (fecha_devolver)
+    */
+    LocalDate fecha_devolver = LocalDate.parse(this.fecha_nacimiento); 
+
+    return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
+  }
+  public LocalDate getFechaNacimientoLocalDate(){
+    return LocalDate.parse(this.fecha_nacimiento);
+  }
+  public char getSexo(){return this.sexo;}
+  public int getEdad(){return this.edad;}
+  public int getPeso(){return this.peso;}
+  public float getAltura(){
+    // Le aplicamos un formato de maximo 2 decimales al resultado
+    DecimalFormat formato1 = new DecimalFormat("#.00");
+    /*
+    * Al aplicar el formato, devuelve un String, es por eso que
+    * debemos usar el "Float.parseFloat" 
+    */
+    return Float.parseFloat(formato1.format(this.altura));
+  }
+
+  // Metodos privados
   private int calcularAnios(){
     LocalDate fecha_actual = LocalDate.now();
     LocalDate fecha_nac_usuario = LocalDate.parse(this.fecha_nacimiento);
@@ -122,46 +183,77 @@ public class Persona{
     return edad_final;
   }
 
-  public void setEdad(){
-    this.edad = calcularAnios();
-  }
-
-  public void setPeso(int peso){
-    final int default_peso = 1;
-
-    if(peso <= 0){
-      System.out.println("El peso ingresado [" + peso +  "] es invalido, se asigno el valor por defecto.");
-      this.peso = default_peso;
-    }else{
-      this.peso = peso;
-    }
-  }
-
-  public void setAltura(int altura){
-    final int default_altura = 1;
-
-    if(altura <= 0){
-      System.out.println("La altura ingresada [" + altura +  "] es invalida, se asigno el valor por defecto.");
-      this.altura = default_altura;
-    }else{
-      this.altura = altura;
-    }
-  }
-  // Getters:
-  public int getDNI(){return this.DNI;}
-  public String getNombre(){return this.nombre;}
-  public String getFechaNacimiento(){
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    /* 
-    * Para usar el formato, la fecha a formatear debe ser de tipo LocalDate, por eso
-    * usamos una variable auxiliar (fecha_devolver)
+  // Metodos publicos
+  /* Dado el peso (KG) y la altura (Mts) del usuario, devuelve su IMC en float */
+  public float devolverIndiceMasaCorporal(){
+    // Le aplicamos un formato de maximo 2 decimales al resultado
+    DecimalFormat formato1 = new DecimalFormat("#.00");
+    /*
+    * Al aplicar el formato, devuelve un String, es por eso que
+    * debemos usar el "Float.parseFloat" 
     */
-    LocalDate fecha_devolver = LocalDate.parse(this.fecha_nacimiento); 
+    float peso = (float)this.peso;
+    float altura = (float)this.altura;
+    float resultado = peso / (altura * altura);
 
-    return fecha_devolver.format(formato); // Devuelve la fecha del usuario, con el patron indicado.
+    return Float.parseFloat(formato1.format(resultado));
   }
-  public char getSexo(){return this.sexo;}
-  public int getEdad(){return this.edad;}
-  public int getPeso(){return this.peso;}
-  public int getAltura(){return this.altura;}
+
+  /*
+  * Evalua el IMC de la persona y devuelve si está (o no) en forma.
+  * Para estar en forma, su imc debe estar entre el IMC minimo y maximo, o igualar alguno. 
+  */ 
+  public boolean estaEnForma(){
+    final float INDICE_MASA_CORPORAL_MINIMA = 18.5f;
+    final float INDICE_MASA_CORPORAL_MAXIMA = 25.f;
+    float imc = this.devolverIndiceMasaCorporal(); // Invocamos la funcion
+
+    // Operador ternario, en caso de que el condicional se cumple, devolvera true, sino false
+    return ((imc >= INDICE_MASA_CORPORAL_MINIMA) && (imc <= INDICE_MASA_CORPORAL_MAXIMA))?true : false;
+  }
+
+  /*
+   * Evalua la fecha de nacimiento de la persona y la compara con la fecha actual,
+   * devuelve Verdadero o falso 
+  */
+  public boolean esSuCumpleanios(){
+    LocalDate fecha_nac = this.getFechaNacimientoLocalDate();
+    LocalDate fecha_actual = LocalDate.now();
+    // En caso que coicidan los meses y los dias de ambas fechas, será su cumpleanios
+    return ((fecha_nac.getMonthValue() == fecha_actual.getMonthValue()) &&
+           (fecha_nac.getDayOfMonth() == fecha_actual.getDayOfMonth())) 
+           ? true : false;
+  }
+  
+  // Evalua la edad del usuario y determina si es (o no) mayor de edad. 
+  public boolean esMayorDeEdad(){
+    int edad = this.getEdad();
+    final int MAYORIA_EDAD = 18;
+
+    return (edad >= MAYORIA_EDAD)? true : false;
+  }
+
+  // Evalua la edad del usuario y determina si puede (o no) votar. 
+  public boolean puedeVotar(){
+    int edad = this.getEdad();
+    final int MINIMO_EDAD_VOTAR = 16;
+
+    return (edad >= MINIMO_EDAD_VOTAR)? true : false;
+  }
+
+  // Muestra la informacion del objeto
+  public void mostrarDatos(){
+    System.out.println("DNI: " + this.getDNI());
+    System.out.println("Nombre: " + this.getNombre());
+    System.out.println("Fecha de nacimiento: " + this.getFechaNacimiento());
+    System.out.println("Edad: " + this.getEdad());
+    System.out.println("Sexo: " + this.getSexo());
+    System.out.println("Altura: " + this.getAltura());
+    System.out.println("Peso: " + this.getPeso());
+    System.out.println("El IMC es de: " + this.devolverIndiceMasaCorporal());
+    System.out.println("Está en forma: " + this.estaEnForma());
+    System.out.println("Es su cumpleanios: " + this.esSuCumpleanios());
+    System.out.println("Es mayor de edad: " + this.esMayorDeEdad());
+    System.out.println("Puede votar: " + this.puedeVotar());
+  }
 }
