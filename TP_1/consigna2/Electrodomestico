@@ -6,22 +6,27 @@ import java.text.DecimalFormat;
 public class Electrodeomestico{
   private String nombre;
   private float precio_base;
+  private String color;
   private float consumo_energetico; // Medido en Kw
   private float peso;
 
   // Constructores
   public Electrodeomestico(String nombre){
-    this(nombre, 0, 0, 0);
+    this(nombre, 0, "", 0, 0);
   }
   public Electrodeomestico(String nombre, float precio_base){
-    this(nombre, precio_base, 0, 0);
+    this(nombre, precio_base, "", 0, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base, float consumo_energetico){
-    this(nombre, precio_base, consumo_energetico, 0);
+  public Electrodeomestico(String nombre, float precio_base, String color){
+    this(nombre, precio_base, color, 0, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base, float consumo_energetico, float peso){
+  public Electrodeomestico(String nombre, float precio_base, String color, float consumo_energetico){
+    this(nombre, precio_base, color, consumo_energetico, 0);
+  }
+  public Electrodeomestico(String nombre, float precio_base, String color, float consumo_energetico, float peso){
     setNombre(nombre);
     setPrecioBase(precio_base);
+    setColor(color);
     setConsumoEnergetico(consumo_energetico);
     setPeso(peso);
   }
@@ -54,6 +59,17 @@ public class Electrodeomestico{
     } 
   }
 
+  public void setColor(String color){
+    final String default_color = "gris plata";
+
+    if(color.equals("")){
+      System.out.println("ADVERTENCIA: color vacio !!!");
+      this.color = default_precio_base;
+    }else{
+      this.color = color;
+    }
+  }
+  
   public void setConsumoEnergetico(float consumo_energetico){
     final DecimalFormat formato1 = new DecimalFormat("#.00");
     final float default_consumo_energetico = 10.00f;
@@ -79,4 +95,11 @@ public class Electrodeomestico{
       this.peso = peso;
     }
   }
+
+  // Getters
+  public String getNombre(){return this.nombre;}
+  public float getPrecioBase(){return this.precio_base;}
+  public String getColor(){return this.color;}
+  public float getConsumoEnergetico(){return this.consumo_energetico;}
+  public float getPeso(){return this.peso;}
 }
