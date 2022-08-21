@@ -1,9 +1,9 @@
-package TP_1.consigna1;
+package TP_1.consigna2;
 
 // Permite especificar la cantidad de decimales en un float
 import java.text.DecimalFormat;
 
-public class Electrodeomestico{
+public class Electrodomestico{
   private String nombre;
   private float precio_base;
   private String color;
@@ -11,19 +11,19 @@ public class Electrodeomestico{
   private float peso;
 
   // Constructores
-  public Electrodeomestico(String nombre){
+  public Electrodomestico(String nombre){
     this(nombre, 0, "", 0, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base){
+  public Electrodomestico(String nombre, float precio_base){
     this(nombre, precio_base, "", 0, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base, String color){
+  public Electrodomestico(String nombre, float precio_base, String color){
     this(nombre, precio_base, color, 0, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base, String color, float consumo_energetico){
+  public Electrodomestico(String nombre, float precio_base, String color, float consumo_energetico){
     this(nombre, precio_base, color, consumo_energetico, 0);
   }
-  public Electrodeomestico(String nombre, float precio_base, String color, float consumo_energetico, float peso){
+  public Electrodomestico(String nombre, float precio_base, String color, float consumo_energetico, float peso){
     setNombre(nombre);
     setPrecioBase(precio_base);
     setColor(color);
@@ -64,7 +64,7 @@ public class Electrodeomestico{
 
     if((color.equals("")) || (color.equals(" "))){
       System.out.println("ADVERTENCIA: color vacio !!!");
-      this.color = default_precio_base;
+      this.color = default_color;
     }else{
       this.color = color;
     }
@@ -76,10 +76,10 @@ public class Electrodeomestico{
     
     if(consumo_energetico <= 0){
       System.out.println("ADVERTENCIA: consumo_electrico = 0 !");
-      this.consumo_electrico = default_consumo_energetico;
+      this.consumo_energetico = default_consumo_energetico;
     }else{
-      consumo_electrico = Float.parseFloat(formato1.format(consumo_electrico));
-      this.consumo_electrico = consumo_electrico;
+      consumo_energetico = Float.parseFloat(formato1.format(consumo_energetico));
+      this.consumo_energetico = consumo_energetico;
     }
   }
 
@@ -89,7 +89,7 @@ public class Electrodeomestico{
 
     if(peso <= 0){
       System.out.println("ADVERTENCIA: peso = 0 !");
-      this.consumo_electrico = default_peso;
+      this.consumo_energetico = default_peso;
     }else{
       peso = Float.parseFloat(formato1.format(peso));
       this.peso = peso;
