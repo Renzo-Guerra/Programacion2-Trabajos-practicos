@@ -34,7 +34,7 @@ public class Electrodeomestico{
   // Setters
   public void setNombre(String nombre){
     final String default_nombre = "sin nombre asignado";
-    if(nombre.equals("")){
+    if(nombre.equals("") || nombre.equals(" ")){
       System.out.println("ADVERTENCIA: Nombre vacio!!!");
       this.nombre = default_nombre;
     }else{
@@ -46,8 +46,8 @@ public class Electrodeomestico{
     final DecimalFormat formato1 = new DecimalFormat("#.00");
     final float default_precio_base = 100.00f;
 
-    if(precio_base == 0){
-      System.out.println("ADVERTENCIA: precio_base = 0 !");
+    if((precio_base <= 0)){
+      System.out.println("ADVERTENCIA: precio_base incoherente !");
       this.precio_base = default_precio_base;
     }else{
       /*
@@ -62,7 +62,7 @@ public class Electrodeomestico{
   public void setColor(String color){
     final String default_color = "gris plata";
 
-    if(color.equals("")){
+    if((color.equals("")) || (color.equals(" "))){
       System.out.println("ADVERTENCIA: color vacio !!!");
       this.color = default_precio_base;
     }else{
@@ -74,7 +74,7 @@ public class Electrodeomestico{
     final DecimalFormat formato1 = new DecimalFormat("#.00");
     final float default_consumo_energetico = 10.00f;
     
-    if(consumo_energetico == 0){
+    if(consumo_energetico <= 0){
       System.out.println("ADVERTENCIA: consumo_electrico = 0 !");
       this.consumo_electrico = default_consumo_energetico;
     }else{
@@ -87,7 +87,7 @@ public class Electrodeomestico{
     final DecimalFormat formato1 = new DecimalFormat("#.00");
     final float default_peso = 2.00;
 
-    if(peso == 0){
+    if(peso <= 0){
       System.out.println("ADVERTENCIA: peso = 0 !");
       this.consumo_electrico = default_peso;
     }else{
