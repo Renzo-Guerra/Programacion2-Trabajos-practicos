@@ -5,4 +5,21 @@ public class Electrodeomestico{
   private float precio_base;
   private float consumo_energetico; // Medido en Kw
   private float peso;
+
+  // Constructores
+  public Electrodeomestico(String nombre){
+    this(nombre, 0, 0, 0);
+  }
+  public Electrodeomestico(String nombre, float precio_base){
+    this(nombre, precio_base, 0, 0);
+  }
+  public Electrodeomestico(String nombre, float precio_base, float consumo_energetico){
+    this(nombre, precio_base, consumo_energetico, 0);
+  }
+  public Electrodeomestico(String nombre, float precio_base, float consumo_energetico, float peso){
+    setNombre(nombre);
+    setPrecioBase(precio_base);
+    setConsumoEnergetico(consumo_energetico);
+    setPeso(peso);
+  }
 }
