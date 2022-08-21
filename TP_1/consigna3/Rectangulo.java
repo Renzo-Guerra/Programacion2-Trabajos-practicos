@@ -14,6 +14,13 @@ public class Rectangulo {
   private PuntoGeometrico punto_c;
   private PuntoGeometrico punto_d;
 
+  // Constructor
+  public Rectangulo(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
+    setPunto_a(a);
+    setPunto_b(b);
+    setPunto_c(c);
+    setPunto_d(d);
+  }
   // Valida que los 4 vertices dados puedan conformar un rectangulo.
   public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     /*
