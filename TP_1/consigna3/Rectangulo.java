@@ -42,6 +42,27 @@ public class Rectangulo {
   public PuntoGeometrico getPunto_c(){return this.punto_c;}
   public PuntoGeometrico getPunto_d(){return this.punto_d;}
 
+  // Metodos
+  /*
+   * Dados unos valores 'x' e 'y', se dezplazaran los 4 vertices 
+   * 'i' unidades horizontalmente, y 'j' unidades verticalmente.
+   */
+  public void desplazarRectanguloEnElPlano(float x, float y){
+    this.setPunto_a(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_a(), x, y));
+    this.setPunto_b(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_b(), x, y));
+    this.setPunto_c(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_c(), x, y));
+    this.setPunto_d(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_d(), x, y));
+  }
+
+  // Dado un vertice, le suma (o resta) las coordenadas
+  private PuntoGeometrico desplazarVerticeDelRectanguloEnElPlano(PuntoGeometrico p, float x, float y){
+    // Las coordenas cambian en base a las previas coordenadas y las nuevas. 
+    p.setCoordenadaX(p.getCoordenadaX() + x); 
+    p.setCoordenadaY(p.getCoordenadaY() + y);
+    
+    return p;
+  } 
+
   // Valida que los 4 vertices dados puedan conformar un rectangulo.
   public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     /*
