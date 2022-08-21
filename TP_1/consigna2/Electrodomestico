@@ -102,4 +102,12 @@ public class Electrodeomestico{
   public String getColor(){return this.color;}
   public float getConsumoEnergetico(){return this.consumo_energetico;}
   public float getPeso(){return this.peso;}
+
+  // Metodos:
+  public boolean esDeBajoConsumo(){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final float VALOR_TOPE = Float.parseFloat(formato1.format(45));
+
+    return (getConsumoEnergetico() < VALOR_TOPE)? true : false;
+  }
 }
