@@ -1,5 +1,7 @@
 package TP_1.consigna3;
 
+import java.text.DecimalFormat;
+
 /*
 *   Ractangulo:
 *
@@ -69,6 +71,29 @@ public class Rectangulo {
     System.out.println("Vertice C:\t (" + this.getPunto_c().getCoordenadaX() + " ; " + this.getPunto_c().getCoordenadaY() + ")");
     System.out.println("Vertice D:\t (" + this.getPunto_d().getCoordenadaX() + " ; " + this.getPunto_d().getCoordenadaY() + ")");
   }
+
+  private float calcularBase(){
+    float valor_x_c = this.getPunto_c().getCoordenadaX();
+    float valor_x_d = this.getPunto_d().getCoordenadaX();
+    
+    return (valor_x_c < valor_x_d)? valor_x_d - valor_x_c : valor_x_c - valor_x_d;
+  }
+
+  private float calcularAltura(){
+    float valor_y_b = this.getPunto_b().getCoordenadaY();
+    float valor_y_d = this.getPunto_d().getCoordenadaY();
+    
+    return (valor_y_d < valor_y_b)? valor_y_b - valor_y_d : valor_y_d - valor_y_b;  
+  }
+
+  public float calcularArea(){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    float base = this.calcularBase();
+    float altura = this.calcularAltura();
+
+    return Float.parseFloat(formato1.format(base * altura));
+  }
+
   // Valida que los 4 vertices dados puedan conformar un rectangulo.
   public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     /*
