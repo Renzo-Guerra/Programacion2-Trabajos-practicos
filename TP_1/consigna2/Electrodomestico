@@ -44,7 +44,7 @@ public class Electrodeomestico{
 
   public void setPrecioBase(float precio_base){
     final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final float default_precio_base = 100.00f;
+    final float default_precio_base = Float.parseFloat(formato1.format(100));
 
     if((precio_base <= 0)){
       System.out.println("ADVERTENCIA: precio_base incoherente !");
@@ -72,7 +72,7 @@ public class Electrodeomestico{
   
   public void setConsumoEnergetico(float consumo_energetico){
     final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final float default_consumo_energetico = 10.00f;
+    final float default_consumo_energetico = Float.parseFloat(formato1.format(10));
     
     if(consumo_energetico <= 0){
       System.out.println("ADVERTENCIA: consumo_electrico = 0 !");
@@ -85,7 +85,7 @@ public class Electrodeomestico{
 
   public void setPeso(float peso){
     final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final float default_peso = 2.00;
+    final float default_peso = Float.parseFloat(formato1.format(2));
 
     if(peso <= 0){
       System.out.println("ADVERTENCIA: peso = 0 !");
