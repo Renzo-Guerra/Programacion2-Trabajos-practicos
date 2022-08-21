@@ -1,5 +1,8 @@
 package TP_1.consigna1;
 
+// Permite especificar la cantidad de decimales en un float
+import java.text.DecimalFormat;
+
 public class Electrodeomestico{
   private String nombre;
   private float precio_base;
@@ -31,6 +34,20 @@ public class Electrodeomestico{
       this.nombre = default_nombre;
     }else{
       this.nombre = nombre;
+    } 
+  }
+
+  public void setPrecioBase(float precio_base){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final float default_precio_base = 100.00f;
+
+    if(precio_base == 0){
+      System.out.println("ADVERTENCIA: precio_base = 0 !");
+      this.precio_base = default_precio_base;
+    }else{
+      // Agregamos el formato prestablecido.
+      precio_base = Float.parseFloat(formato1.format(precio_base));
+      this.precio_base = precio_base;
     } 
   }
 }
