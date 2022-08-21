@@ -16,7 +16,10 @@ public class Rectangulo {
   private PuntoGeometrico punto_c;
   private PuntoGeometrico punto_d;
 
-  // Constructor
+  // Constructores
+  public Rectangulo(Rectangulo rectangulo){
+    this(rectangulo.getPunto_a(), rectangulo.getPunto_b(), rectangulo.getPunto_c(), rectangulo.getPunto_d());
+  }
   public Rectangulo(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     setPunto_a(a);
     setPunto_b(b);
