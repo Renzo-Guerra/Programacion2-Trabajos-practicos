@@ -1,0 +1,8 @@
+package TP_1.consigna1;
+
+public class Electrodeomestico{
+  private String nombre;
+  private float precio_base;
+  private float consumo_energetico; // Medido en Kw
+  private float peso;
+}
