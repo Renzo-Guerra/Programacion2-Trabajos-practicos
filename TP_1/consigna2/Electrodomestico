@@ -22,4 +22,15 @@ public class Electrodeomestico{
     setConsumoEnergetico(consumo_energetico);
     setPeso(peso);
   }
+
+  // Setters
+  public void setNombre(String nombre){
+    final String default_nombre = "sin nombre asignado";
+    if(nombre.equals("")){
+      System.out.println("ADVERTENCIA: Nombre vacio!!!");
+      this.nombre = default_nombre;
+    }else{
+      this.nombre = nombre;
+    } 
+  }
 }
