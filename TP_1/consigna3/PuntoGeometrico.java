@@ -53,6 +53,20 @@ public class PuntoGeometrico {
     // Devolvemos la distancia una vez aplicado el formato prestablecido
     return Double.parseDouble(formato1.format(distancia));
   }
+   public double calcularDistanciaEuclidea(PuntoGeometrico punto){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final double coordenada_x = this.getCoordenadaX();
+    final double coordenada_y = this.getCoordenadaY();
+    double distancia;
+    // "Destructuramos" las coordenadas y las asignamos a variables. 
+    double nuevo_punto_x = punto.getCoordenadaX();
+    double nuevo_punto_y = punto.getCoordenadaY();
+
+    // Calculamos la distancia
+    distancia = Math.sqrt((Math.pow((coordenada_x - nuevo_punto_x), 2)) + (Math.pow((coordenada_y - nuevo_punto_y), 2)));
+    // Devolvemos la distancia una vez aplicado el formato prestablecido
+    return Double.parseDouble(formato1.format(distancia));
+   }
 
   public void mostrarCoordenadasPunto(){
     System.out.println("Valor de x: " + this.getCoordenadaX());
