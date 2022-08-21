@@ -32,4 +32,10 @@ public class PuntoGeometrico {
   public float getCoordenadaX(){return this.coordenada_x;}
   public float getCoordenadaY(){return this.coordenada_y;}
 
+  // Metodos
+
+  public void desplazarPuntoEnElPlano(float x, float y){
+    setCoordenadaX(x);
+    setCoordenadaY(y);
+  }
 }
