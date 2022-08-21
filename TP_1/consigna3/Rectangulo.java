@@ -94,6 +94,20 @@ public class Rectangulo {
     return Float.parseFloat(formato1.format(base * altura));
   }
 
+  /*
+   * Devolver 1 si el rectángulo que invoca el metodo es mayor, 
+   * 0 si son iguales y -1 si es menor. 
+   * "Se dice que un rectángulo es mayor que otro si el área del 
+   * mismo es mayor que la del otro."
+   */
+  public int esMayor(Rectangulo otroRectangulo){
+    if(this.calcularArea() == otroRectangulo.calcularArea()){
+      return 0;
+    }else{
+      return (this.calcularArea() > otroRectangulo.calcularArea())? 1 : -1;
+    }
+  }
+
   // Valida que los 4 vertices dados puedan conformar un rectangulo.
   public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     /*
