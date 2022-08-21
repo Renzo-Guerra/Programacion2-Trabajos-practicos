@@ -124,4 +124,13 @@ public class Electrodomestico{
 
     return (calcularBalance() > VALOR_MINIMO)? true : false;
   }
+
+  public void mostrarDatos(){
+    System.out.println("Nombre: " + this.getNombre());
+    System.out.println("Precio base: $" + this.getPrecioBase());
+    System.out.println("Color: " + this.getColor());
+    System.out.println("Consumo energetico: " + this.getConsumoEnergetico() + " KwH");
+    System.out.println("Peso: " + this.getPeso() + " Kg");
+    System.out.println("");
+  }
 }
