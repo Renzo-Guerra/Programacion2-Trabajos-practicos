@@ -66,4 +66,17 @@ public class Electrodeomestico{
       this.consumo_electrico = consumo_electrico;
     }
   }
+
+  public void setPeso(float peso){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final float default_peso = 2.00;
+
+    if(peso == 0){
+      System.out.println("ADVERTENCIA: peso = 0 !");
+      this.consumo_electrico = default_peso;
+    }else{
+      peso = Float.parseFloat(formato1.format(peso));
+      this.peso = peso;
+    }
+  }
 }
