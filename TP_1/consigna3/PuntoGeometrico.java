@@ -38,8 +38,8 @@ public class PuntoGeometrico {
 
   public double calcularDistanciaEuclidea(Double nuevo_punto_x, Double nuevo_punto_y){
     final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final double coordenada_x = getCoordenadaX();
-    final double coordenada_y = getCoordenadaY();
+    final double coordenada_x = this.getCoordenadaX();
+    final double coordenada_y = this.getCoordenadaY();
     double distancia;
     /*
      * - Se les introduce un formato decimal prestablecido.
@@ -52,5 +52,11 @@ public class PuntoGeometrico {
     
     // Devolvemos la distancia una vez aplicado el formato prestablecido
     return Double.parseDouble(formato1.format(distancia));
+  }
+
+  public void mostrarCoordenadasPunto(){
+    System.out.println("Valor de x: " + this.getCoordenadaX());
+    System.out.println("Valor de y: " + this.getCoordenadaY());
+    System.out.println("");
   }
 }
