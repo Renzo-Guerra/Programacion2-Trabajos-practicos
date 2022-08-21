@@ -117,4 +117,11 @@ public class Electrodeomestico{
 
     return Float.parseFloat(formato1.format(balance_final));
   }
+
+  public boolean esDeAltaGama(){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final float VALOR_MINIMO = Float.parseFloat(formato1.format(3));
+
+    return (calcularBalance() > VALOR_MINIMO)? true : false;
+  }
 }
