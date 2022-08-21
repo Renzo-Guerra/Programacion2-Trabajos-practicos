@@ -45,9 +45,25 @@ public class Electrodeomestico{
       System.out.println("ADVERTENCIA: precio_base = 0 !");
       this.precio_base = default_precio_base;
     }else{
-      // Agregamos el formato prestablecido.
+      /*
+      * - Agregamos el formato prestablecido.
+      * - Usamos el Float.parseFloat porque al prestablecerle un formato, devuelve un String
+      */ 
       precio_base = Float.parseFloat(formato1.format(precio_base));
       this.precio_base = precio_base;
     } 
+  }
+
+  public void setConsumoEnergetico(float consumo_energetico){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    final float default_consumo_energetico = 10.00f;
+    
+    if(consumo_energetico == 0){
+      System.out.println("ADVERTENCIA: consumo_electrico = 0 !");
+      this.consumo_electrico = default_consumo_energetico;
+    }else{
+      consumo_electrico = Float.parseFloat(formato1.format(consumo_electrico));
+      this.consumo_electrico = consumo_electrico;
+    }
   }
 }
