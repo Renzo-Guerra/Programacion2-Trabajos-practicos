@@ -62,7 +62,13 @@ public class Rectangulo {
     
     return p;
   } 
-
+  
+  public void mostrarCoordenadasDeLosVertices(){
+    System.out.println("Vertice A:\t (" + this.getPunto_a().getCoordenadaX() + " ; " + this.getPunto_a().getCoordenadaY() + ")");
+    System.out.println("Vertice B:\t (" + this.getPunto_b().getCoordenadaX() + " ; " + this.getPunto_b().getCoordenadaY() + ")");
+    System.out.println("Vertice C:\t (" + this.getPunto_c().getCoordenadaX() + " ; " + this.getPunto_c().getCoordenadaY() + ")");
+    System.out.println("Vertice D:\t (" + this.getPunto_d().getCoordenadaX() + " ; " + this.getPunto_d().getCoordenadaY() + ")");
+  }
   // Valida que los 4 vertices dados puedan conformar un rectangulo.
   public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
     /*
