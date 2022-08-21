@@ -69,9 +69,9 @@ public class Rectangulo {
       * Al tener la palabra "static", no es necesario que se haya instanciado un objeto para usarla, 
       * podria decirse que es de ambito ""global"", para usarse poner Rectangulo.sonVerticesValidos(a, b, c, d);
     */
-    return (((a.getCoordenadaX() == b.getCoordenadaX()) && 
-          (c.getCoordenadaX() == d.getCoordenadaX())) && 
-          ((a.getCoordenadaY() == c.getCoordenadaY()) && 
-          (b.getCoordenadaY() == d.getCoordenadaY())))? true : false;
+    return (((a.getCoordenadaY() == b.getCoordenadaY()) && 
+          (c.getCoordenadaY() == d.getCoordenadaY())) && 
+          ((a.getCoordenadaX() == c.getCoordenadaX()) && 
+          (b.getCoordenadaX() == d.getCoordenadaX())))? true : false;
   }
 }
