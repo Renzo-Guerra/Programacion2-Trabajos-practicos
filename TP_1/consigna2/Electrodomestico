@@ -110,4 +110,11 @@ public class Electrodeomestico{
 
     return (getConsumoEnergetico() < VALOR_TOPE)? true : false;
   }
+  
+  public float calcularBalance(){
+    final DecimalFormat formato1 = new DecimalFormat("#.00");
+    float balance_final = getPrecioBase() / getPeso();
+
+    return Float.parseFloat(formato1.format(balance_final));
+  }
 }
