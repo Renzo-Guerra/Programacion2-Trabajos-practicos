@@ -15,16 +15,25 @@ public class Rectangulo {
   private PuntoGeometrico punto_b;
   private PuntoGeometrico punto_c;
   private PuntoGeometrico punto_d;
-
-  // Constructores
-  public Rectangulo(Rectangulo rectangulo){
-    this(rectangulo.getPunto_a(), rectangulo.getPunto_b(), rectangulo.getPunto_c(), rectangulo.getPunto_d());
-  }
-  public Rectangulo(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
-    setPunto_a(a);
-    setPunto_b(b);
-    setPunto_c(c);
-    setPunto_d(d);
+  
+  /*
+   * Dado un solo punto geometrico, se genera un rectangulo:
+   * - Si la distancia en x si es positiva, B estará a la derecha A. 
+   * - Si la distancia en x si es negativa, B estará a la izquierda de A.
+   * - Si la distancia en y si es positiva, C estará por encima de A.
+   * - Si la distancia en x si es negativa, C estará por debajo de A. 
+   * - Si A o B es cero, ese valor sera 1 por defecto.
+   */
+  public Rectangulo(PuntoGeometrico punto_a, float distancia_x, float distancia_y){
+    final float DICERNIBLE = 0;
+    final float DEFAULT_VALUE = 1; 
+    // Validaciones distinto del DICERNIBLE: 
+    distancia_x = (distancia_x != DICERNIBLE)? distancia_x : DEFAULT_VALUE;
+    distancia_y = (distancia_y != DICERNIBLE)? distancia_y : DEFAULT_VALUE;
+    setPunto_a(punto_a);
+    setPunto_b(new PuntoGeometrico((punto_a.getCoordenadaX() + distancia_x), punto_a.getCoordenadaY()));
+    setPunto_c(new PuntoGeometrico((punto_a.getCoordenadaX()), punto_a.getCoordenadaY() + distancia_y));
+    setPunto_d(new PuntoGeometrico(punto_b.getCoordenadaX(), punto_c.getCoordenadaY()));
   }
   
   // Setters
