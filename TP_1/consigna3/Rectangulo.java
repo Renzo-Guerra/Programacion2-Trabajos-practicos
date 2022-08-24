@@ -62,10 +62,14 @@ public class Rectangulo {
    * 'i' unidades horizontalmente, y 'j' unidades verticalmente.
    */
   public void desplazarRectanguloEnElPlano(float x, float y){
-    this.setPunto_a(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_a(), x, y));
-    this.setPunto_b(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_b(), x, y));
-    this.setPunto_c(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_c(), x, y));
-    this.setPunto_d(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_d(), x, y));
+    final float DISCERNIBLE = 0;
+    // Valida que almenos una de las unidades de desplazamiento sea distinto al DISCERNIBLE
+    if((y != DISCERNIBLE) || (y != DISCERNIBLE)){
+      this.setPunto_a(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_a(), x, y));
+      this.setPunto_b(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_b(), x, y));
+      this.setPunto_c(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_c(), x, y));
+      this.setPunto_d(desplazarVerticeDelRectanguloEnElPlano(this.getPunto_d(), x, y));
+    }
   }
 
   // Dado un vertice, le suma (o resta) las coordenadas
