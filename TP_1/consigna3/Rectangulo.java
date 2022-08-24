@@ -112,10 +112,6 @@ public class Rectangulo {
    * mismo es mayor que la del otro."
    */
   public int esMayor(Rectangulo otroRectangulo){
-    if(this.calcularArea() == otroRectangulo.calcularArea()){
-      return 0;
-    }else{
-      return (this.calcularArea() > otroRectangulo.calcularArea())? 1 : -1;
-    }
+    return (this.calcularArea() == otroRectangulo.calcularArea()) ? 0 : (this.calcularArea() > otroRectangulo.calcularArea()) ? 1 : -1;
   }
 }
