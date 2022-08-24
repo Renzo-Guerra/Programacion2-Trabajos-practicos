@@ -20,12 +20,27 @@ public class Main {
     // System.out.println("Dado los 2 puntos instanciados, la distancia euclidea es de: " + punto_a.calcularDistanciaEuclidea(punto_c));
 
     PuntoGeometrico punto_a = new PuntoGeometrico(3, 6);
+    PuntoGeometrico punto_b = new PuntoGeometrico(0, 0);
+    Rectangulo rectangulo_1, rectangulo_2;
+    float distancia_xa = 13, distancia_ya = 7;
+    float distancia_xb = 13, distancia_yb = 7;
 
-    Rectangulo rectangulo_1;
-    float distancia_x = 3, distancia_y = 17.5f;
-
-    rectangulo_1 = new Rectangulo(punto_a, distancia_x, distancia_y);
+    rectangulo_1 = new Rectangulo(punto_a, distancia_xa, distancia_ya);
+    rectangulo_2 = new Rectangulo(punto_b, distancia_xb, distancia_yb);
     // Realizar validaciones de metodos
+    System.out.println("Coordenadas de los vertices del rectangulo_1: ");
     rectangulo_1.mostrarCoordenadasDeLosVertices();
+    System.out.println("\nCoordenadas de los vertices del rectangulo_2: ");
+    rectangulo_2.mostrarCoordenadasDeLosVertices();
+    System.out.println("Base del rectangulo_2: " + rectangulo_2.calcularBase());
+    System.out.println("Altura del rectangulo_2: " + rectangulo_2.calcularAltura());
+    System.out.println("\nNuevas coordenadas de los vertices del rectangulo_1: ");
+    rectangulo_1.desplazarRectanguloEnElPlano(10, 10);
+    rectangulo_1.mostrarCoordenadasDeLosVertices();
+    System.out.println("Base del rectangulo_1: " + rectangulo_1.calcularBase());
+    System.out.println("Altura del rectangulo_1: " + rectangulo_1.calcularAltura());
+    System.out.println("\nEl rectangulo_1 es mayor al rectangulo_2: " + rectangulo_1.esMayor(rectangulo_2));
+    System.out.println("El rectangulo_2 es un cuadrado: " + rectangulo_2.esUnCuadrado());
+    System.out.println("El rectangulo_2 esta acostado: " + rectangulo_2.estaAcostado());
   }
 }

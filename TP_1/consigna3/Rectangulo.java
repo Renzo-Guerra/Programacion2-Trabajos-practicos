@@ -88,14 +88,14 @@ public class Rectangulo {
     System.out.println("Vertice D:\t (" + this.getPunto_d().getCoordenadaX() + " ; " + this.getPunto_d().getCoordenadaY() + ")");
   }
 
-  private float calcularBase(){
+  public float calcularBase(){
     float valor_x_c = this.getPunto_c().getCoordenadaX();
     float valor_x_d = this.getPunto_d().getCoordenadaX();
     
     return (valor_x_c < valor_x_d)? Math.abs(valor_x_d - valor_x_c) : Math.abs(valor_x_c - valor_x_d);
   }
 
-  private float calcularAltura(){
+  public float calcularAltura(){
     float valor_y_b = this.getPunto_b().getCoordenadaY();
     float valor_y_d = this.getPunto_d().getCoordenadaY();
     
