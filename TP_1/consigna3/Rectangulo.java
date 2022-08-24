@@ -15,7 +15,7 @@ public class Rectangulo {
   private PuntoGeometrico punto_b;
   private PuntoGeometrico punto_c;
   private PuntoGeometrico punto_d;
-  
+  private final DecimalFormat FORMATO_DECIMAL = new DecimalFormat("#.00");
   /*
    * Dado un solo punto geometrico, se genera un rectangulo:
    * - Si la distancia en x si es positiva, B estará a la derecha A. 
@@ -99,11 +99,10 @@ public class Rectangulo {
   }
 
   public float calcularArea(){
-    final DecimalFormat formato1 = new DecimalFormat("#.00");
     float base = this.calcularBase();
     float altura = this.calcularAltura();
 
-    return Float.parseFloat(formato1.format(base * altura));
+    return Float.parseFloat(FORMATO_DECIMAL.format(base * altura));
   }
 
   /*
