@@ -127,6 +127,6 @@ public class Rectangulo {
   // Calcula si el rectangulo esta parado o acostado
   // En caso de que sea un cuadrado, devolvera que esta acostado
   public boolean estaAcostado(){
-    return (this.calcularBase() == this.calcularAltura());
+    return (this.calcularBase() >= this.calcularAltura());
   }
 }
