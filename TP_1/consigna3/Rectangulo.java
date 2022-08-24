@@ -118,16 +118,4 @@ public class Rectangulo {
       return (this.calcularArea() > otroRectangulo.calcularArea())? 1 : -1;
     }
   }
-
-  // Valida que los 4 vertices dados puedan conformar un rectangulo.
-  public static boolean sonVerticesValidos(PuntoGeometrico a, PuntoGeometrico b, PuntoGeometrico c, PuntoGeometrico d){
-    /*
-      * Al tener la palabra "static", no es necesario que se haya instanciado un objeto para usarla, 
-      * podria decirse que es de ambito ""global"", para usarse poner Rectangulo.sonVerticesValidos(a, b, c, d);
-    */
-    return (((a.getCoordenadaY() == b.getCoordenadaY()) && 
-          (c.getCoordenadaY() == d.getCoordenadaY())) && 
-          ((a.getCoordenadaX() == c.getCoordenadaX()) && 
-          (b.getCoordenadaX() == d.getCoordenadaX())))? true : false;
-  }
 }
