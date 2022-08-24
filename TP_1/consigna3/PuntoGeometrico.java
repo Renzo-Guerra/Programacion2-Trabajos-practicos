@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 public class PuntoGeometrico {
   private float coordenada_x;
   private float coordenada_y;
+  private static final DecimalFormat FORMATO_DECIMAL = new DecimalFormat("#.00");
 
   public PuntoGeometrico(){
     this(0, 0);
@@ -17,13 +18,11 @@ public class PuntoGeometrico {
 
   // Setters
   public void setCoordenadaX(float x){
-    final DecimalFormat formato1 = new DecimalFormat("#.00");
-    this.coordenada_x = Float.parseFloat(formato1.format(x));
+    this.coordenada_x = Float.parseFloat(FORMATO_DECIMAL.format(x));
   }
 
   public void setCoordenadaY(float y){
-    final DecimalFormat formato1 = new DecimalFormat("#.00");
-    this.coordenada_y = Float.parseFloat(formato1.format(y));
+    this.coordenada_y = Float.parseFloat(FORMATO_DECIMAL.format(y));
   }
   
   // Getters
@@ -36,37 +35,28 @@ public class PuntoGeometrico {
     setCoordenadaY(y);
   }
 
-  public double calcularDistanciaEuclidea(Double nuevo_punto_x, Double nuevo_punto_y){
-    final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final double coordenada_x = this.getCoordenadaX();
-    final double coordenada_y = this.getCoordenadaY();
+  public double retornarDistanciaEuclidea(float nueva_coordenada_x, float nueva_coordenada_y){
+    return calcularDistanciaEuclidea(nueva_coordenada_x, nueva_coordenada_y);
+  }
+  public double retornarDistanciaEuclidea(PuntoGeometrico punto){
+    return calcularDistanciaEuclidea(punto.getCoordenadaX(), punto.getCoordenadaY());
+  }
+  // Calcula la distancia euclidea
+  private double calcularDistanciaEuclidea(float nuevo_punto_x, float nuevo_punto_y){
+    // Para usar Math.pow los valores de las coordenadas deben ser de tipo double
+    final double coordenada_x = this.getCoordenadaX();  // Coordenada x del punto viejo
+    final double coordenada_y = this.getCoordenadaY();  // Coordenada y del punto viejo
     double distancia;
-    /*
-     * - Se les introduce un formato decimal prestablecido.
-     * - Se utilizan datos de tipo "double" para poder utilizar el metodo "pow" de la clase Math
-    */
-    nuevo_punto_x = Double.parseDouble(formato1.format(nuevo_punto_x));
-    nuevo_punto_y = Double.parseDouble(formato1.format(nuevo_punto_y));
+    // Se les introduce un formato decimal prestablecido.
+    double nuevo_punto_x_double = Double.parseDouble(FORMATO_DECIMAL.format(nuevo_punto_x));
+    double nuevo_punto_y_double = Double.parseDouble(FORMATO_DECIMAL.format(nuevo_punto_y));
+    
     // Calculamos la distancia
-    distancia = Math.sqrt((Math.pow((coordenada_x - nuevo_punto_x), 2)) + (Math.pow((coordenada_y - nuevo_punto_y), 2)));
+    distancia = Math.sqrt((Math.pow((coordenada_x - nuevo_punto_x_double), 2)) + (Math.pow((coordenada_y - nuevo_punto_y_double), 2)));
     
     // Devolvemos la distancia una vez aplicado el formato prestablecido
-    return Double.parseDouble(formato1.format(distancia));
+    return Double.parseDouble(FORMATO_DECIMAL.format(distancia));
   }
-   public double calcularDistanciaEuclidea(PuntoGeometrico punto){
-    final DecimalFormat formato1 = new DecimalFormat("#.00");
-    final double coordenada_x = this.getCoordenadaX();
-    final double coordenada_y = this.getCoordenadaY();
-    double distancia;
-    // "Destructuramos" las coordenadas y las asignamos a variables. 
-    double nuevo_punto_x = punto.getCoordenadaX();
-    double nuevo_punto_y = punto.getCoordenadaY();
-
-    // Calculamos la distancia
-    distancia = Math.sqrt((Math.pow((coordenada_x - nuevo_punto_x), 2)) + (Math.pow((coordenada_y - nuevo_punto_y), 2)));
-    // Devolvemos la distancia una vez aplicado el formato prestablecido
-    return Double.parseDouble(formato1.format(distancia));
-   }
 
   public void mostrarCoordenadasPunto(){
     System.out.println("Valor de x: " + this.getCoordenadaX());
