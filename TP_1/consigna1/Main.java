@@ -1,28 +1,35 @@
 package TP_1.consigna1;
 
+import java.time.LocalDate;
+
 /*
- * Para que el programe tome la fecha de nacimiento ingresada,
- * debe seguir el patron "yyyy-MM-dd" ej: "1997-12-23"
- * NO se puede ingresar ni meses ni dias con solo 1 numero, 
- * se deberá hacer utilizando "02", o "09"
- * 
- * La altura aunque se muestre en metros, usted debe ingresarla
- * en centimetros.
- * El peso debe ir indicado en KG
+  * La altura debe ir en Mts.
+  * El peso debe ir indicado en KG.
 */
 
 public class Main {
   public static void main(String[] args) {
-    int dni_ingresar = 24504877;
+    long dni = 24504877;
     String nombre = "Franco";
-    String fecha_nacimiento = "2009-08-03"; // Ingresar "1999-2-4" estaria mal, "1999-2-03" MAL, "1999-02-3" MAL
+    LocalDate fecha_nacimiento = LocalDate.of(1997, 4, 2);
     char sexo = 'm';
-    int altura = 191;
-    int peso = 90;
+    float altura = 191.34f;
+    float peso = 90.12f;
 
-    Persona sujeto_1 = new Persona(dni_ingresar, nombre, fecha_nacimiento, sexo, altura, peso);
+    Persona sujeto_1 = new Persona(dni, nombre, fecha_nacimiento, sexo, altura, peso);
     
     System.out.println("\nInformacion del sujeto_1: ");
-    sujeto_1.mostrarDatos();
+    System.out.println(sujeto_1.obtenerDatos());
+    mostrarLosDemasDatos(sujeto_1);
+  }
+  
+  // Probamos los demas metodos que no son getters
+  public static void mostrarLosDemasDatos(Persona sujeto){
+    System.out.println("La edad es: " + sujeto.getEdad());
+    System.out.println("El IMC es: " + sujeto.calcularIndiceMasaCorporal());
+    System.out.println("Esta en forma: " + sujeto.estaEnForma());
+    System.out.println("Es su cumpleaños: " + sujeto.esSuCumpleanios());
+    System.out.println("Es mayor de edad: " + sujeto.esMayorDeEdad());
+    System.out.println("Puede votar: " + sujeto.puedeVotar());
   }
 }
