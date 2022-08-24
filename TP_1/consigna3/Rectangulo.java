@@ -118,4 +118,9 @@ public class Rectangulo {
   public int esMayor(Rectangulo otroRectangulo){
     return (this.calcularArea() == otroRectangulo.calcularArea()) ? 0 : (this.calcularArea() > otroRectangulo.calcularArea()) ? 1 : -1;
   }
+
+  // Valida si es un cuadrado
+  public boolean esUnCuadrado(){
+    return (this.calcularBase() == this.calcularAltura());
+  }
 }
