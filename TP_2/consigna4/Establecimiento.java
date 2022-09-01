@@ -1,22 +1,15 @@
+// IMPORTANTE: Falta corregir este archivo
 package TP_2.consigna4;
 
 import java.util.ArrayList;
 
 public class Establecimiento {
-  private int precio_x_hora_cancha_futbol;
-  private int precio_x_hora_cancha_paddle;
-  public static final String CANCHA_FUTBOL = "futbol";
-  public static final String CANCHA_PADDLE = "paddle";
-
   private ArrayList<Usuario> usuarios = new ArrayList<>();
-  private ArrayList<Usuario> socios = new ArrayList<>();
   private ArrayList<Cancha> canchas_de_futbol = new ArrayList<>();
   private ArrayList<Cancha> canchas_de_paddle = new ArrayList<>();
   
   // Constructor
   public Establecimiento(Cancha[] canchas_de_futbol, Cancha[] canchas_de_paddle){
-    this.precio_x_hora_cancha_futbol = 400;
-    this.precio_x_hora_cancha_paddle = 100;
     setCanchasDeFutbol(canchas_de_futbol);
     setCanchasDePaddle(canchas_de_paddle);
   }
