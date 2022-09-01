@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.Period;
 
 public class Turno {
-  // Sacar el precio final (Con o sin descuento)
   private Cancha cancha;
   private Usuario usuario;
   private LocalDateTime inicio_turno;
@@ -33,7 +32,7 @@ public class Turno {
     // valor = precio de la cancha * cantidad de horas que se reserva.
     double valor = (getCancha().getPrecio()) * getCantHoras();
     // En caso de que sea socio, a valor se le quita el x %, caso que NO sea socio, se le cobrará el precio completo.
-    return (getUsuario().esSocio())? (valor - (valor * (Usuario.getDescuento_socio_porcentaje() / 100))) : valor;
+    return (getUsuario().esSocio())? (valor - (valor * (Usuario.getDescuentoSocioPorcentaje() / 100))) : valor;
   }
 
   /**
@@ -42,7 +41,8 @@ public class Turno {
    * @return el horario de finalizacion del turno (LocalDateTime)
    */
   public LocalDateTime getHorarioFinal(){
-    return getInicioTurno().plusHours(Long.valueOf(getCantHoras()));
+    // El horario final es
+    return getInicioTurno().plusHours(Long.valueOf(getCantHoras())).minusSeconds(1); 
   }
   
   public int getPeridodoMeses(){return this.PERIODO_MESES;}

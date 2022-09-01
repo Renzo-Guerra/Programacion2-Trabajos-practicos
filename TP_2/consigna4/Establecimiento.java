@@ -30,6 +30,60 @@ public class Establecimiento {
   public int getPrecioFutbol(){return this.precio_x_hora_cancha_futbol;}
   public int getPrecioPaddle(){return this.precio_x_hora_cancha_paddle;}
   
+  public Usuario getUsuario(String nombre){
+    if((nombre != null) && (nombre != "")){
+      for (Usuario usuario : usuarios) {
+        if(usuario.getNombre() == nombre){
+          return usuario;
+        }
+      }
+    }
+    
+    return null;
+  }  
+  public Cancha getCancha(String tipo_cancha, int numero){
+    switch(tipo_cancha){
+      case "futbol":{
+          
+        ;break;
+      }
+      case "paddle":{
+        
+        ;break;
+      }
+    }
+    if((numero > 0) && (numero < canchas_de_futbol.size())){
+      for (Cancha cancha : canchas_de_futbol) {
+        if(cancha.getNumeroDeCancha() == numero){
+          return cancha;
+        }
+      }
+    }
+
+    return null;
+  }
+  public Cancha getCanchaFutbol(int numero){
+    if((numero > 0) && (numero < canchas_de_futbol.size())){
+      for (Cancha cancha : canchas_de_futbol) {
+        if(cancha.getNumeroDeCancha() == numero){
+          return cancha;
+        }
+      }
+    }
+
+    return null;
+  }
+  public Cancha getCanchaPaddle(int numero){
+    if((numero > 0) && (numero < canchas_de_paddle.size())){
+      for (Cancha cancha : canchas_de_paddle) {
+        if(cancha.getNumeroDeCancha() == numero){
+          return cancha;
+        }
+      }
+    }
+    
+    return null;
+  }
   // Metodos varios
   public void agregarCanchaFutbol(Cancha cancha_futbol){
     if(cancha_futbol.getTipoDeCancha() == CANCHA_FUTBOL){

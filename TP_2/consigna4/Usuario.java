@@ -14,7 +14,7 @@ public class Usuario {
   public void setNombre(String nombre){this.nombre = nombre;}
   // Getter
   public String getNombre() {return nombre;}
-  public static int getDescuento_socio_porcentaje(){return descuento_socio_porcentaje;}
+  public static int getDescuentoSocioPorcentaje(){return descuento_socio_porcentaje;}
   
   public void agregarTurno(Turno turnoAgregar){
     if(turnoAgregar != null){

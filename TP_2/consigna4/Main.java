@@ -1,4 +1,11 @@
-// IMPORTANTE: Falta corregir este archivo
+/*
+ * - Los turnos solo se pueden hacer en el mismo dia, es decir que no se puede sacar turno para mañana por ejemplo.
+ * - El establecimiento esta abierto los 7 dias de la semana
+ * - El establecimiento esta abierto desde x hora, a una y hora.
+ * - No se puede hacer un turno a una cancha en cierto horario si esta ya esta reservada.
+ * - No se puede hacer un turno para horarios fuera de la joranada laboral (Para antes de que este abierto, o luego de que cerraran).
+ */
+
 package TP_2.consigna4;
 
 import java.io.BufferedReader;
