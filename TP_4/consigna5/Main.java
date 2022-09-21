@@ -5,12 +5,6 @@ import java.time.LocalDate;
 import TP_4.consigna5.producto.*;
 
 /**
- * 
- * ductos llevan esta * información común: fecha de vencimiento y número de lote.
- *  A su vez, cada tipo de producto lleva alguna información específica. Los productos frescos deben llevar la fecha 
- * de envasado y la granja de origen. Los productos refrigerados deben llevar el código del organismo de supervisión 
- * alimentaria, la fecha de envasado, la temperatura de mantenimiento recomendada y la granja de origen. 
- * 
  * NOTAS:
  *  - La ProductoFresco es la clase "padre", de ProductoRefrigerado.
  *  - Dentro de "informacion especifica" estaban los atributos "fecha envasado" y "granja", entonces los movi como "informacion comun" 
