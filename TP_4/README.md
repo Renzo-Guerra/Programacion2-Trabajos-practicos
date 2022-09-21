@@ -39,13 +39,40 @@ El sistema debe permitir conocer el estado de una persona. El estado puede ser "
 🔼 [Volver a los enunciados](#enunciados)
 
 ###  Avícola
-Una empresa encargada de la comercialización de productos avícolas trabaja con tres tipos de productos: productos frescos (huevos de gallina blancos y de color, huevos de codorniz, etc), productos refrigerados (pollos frescos, milanesas de pollo, de cerdo y de ternera, pollo arrollado, chorizos de cerdo, etc) y productos congelados (hamburguesas, papas fritas, arvejas, granos de maíz, formas de pollo rebozadas, etc.). Todos los productos llevan esta * **información común**: fecha de vencimiento y número de lote. A su vez, cada tipo de producto lleva alguna **información específica**. Los productos frescos deben llevar la fecha de envasado y la granja de origen. Los productos refrigerados deben llevar el código del organismo de supervisión alimentaria, la fecha de envasado, la temperatura de mantenimiento recomendada y la granja de origen. Los productos congelados deben llevar la fecha de envasado, el código del organismo de supervisión alimentaria, la granja de origen y la temperatura de mantenimiento recomendada.
+Una empresa encargada de la comercialización de productos avícolas trabaja con tres tipos de productos: productos frescos (huevos de gallina blancos y de color, huevos de codorniz, etc), productos refrigerados (pollos frescos, milanesas de pollo, de cerdo y de ternera, pollo arrollado, chorizos de cerdo, etc) y productos congelados (hamburguesas, papas fritas, arvejas, granos de maíz, formas de pollo rebozadas, etc.). 
 
-Hay tres tipos de productos congelados: congelados por aire, congelados por agua y congelados por nitrógeno. Los productos congelados por aire deben llevar la información de la composición del aire con que fue congelado (% de nitrógeno, % de oxígeno, % de dióxido de carbono y % de vapor de agua). Los productos congelados por agua deben llevar la información de la salinidad del agua con que se realizó la congelación en gramos de sal por litro de agua. Los productos congelados por nitrógeno deben llevar la información del método de congelación empleado y del tiempo de exposición al nitrógeno expresada en segundos. Implementar los métodos necesarios para obtener cada uno de los atributos de un producto. Implementar un método que permita obtener la etiqueta de un producto (un String con la combinación de los atributos).
+Todos los productos llevan esta **información común**: 
+* fecha de vencimiento.
+* número de lote. 
+
+A su vez, cada tipo de producto lleva alguna **información específica**. 
+* Los productos frescos deben llevar la fecha de envasado y la granja de origen. 
+* Los productos refrigerados deben llevar el código del organismo de supervisión alimentaria, la fecha de envasado, la temperatura de mantenimiento recomendada y la granja de origen. 
+* Los productos congelados deben llevar la fecha de envasado, el código del organismo de supervisión alimentaria, la granja de origen y la temperatura de mantenimiento recomendada.
+
+Hay tres tipos de productos congelados: congelados por aire, congelados por agua y congelados por nitrógeno. 
+* Los productos congelados por aire deben llevar la información de la composición del aire con que fue congelado (% de nitrógeno, % de oxígeno, % de dióxido de carbono y % de vapor de agua). 
+* Los productos congelados por agua deben llevar la información de la salinidad del agua con que se realizó la congelación en gramos de sal por litro de agua. 
+* Los productos congelados por nitrógeno deben llevar la información del método de congelación empleado y del tiempo de exposición al nitrógeno expresada en segundos. 
+
+Implementar los métodos necesarios para obtener cada uno de los atributos de un producto. Implementar un método que permita obtener la etiqueta de un producto (un String con la combinación de los atributos).
 
 🔼 [Volver a los enunciados](#enunciados)
 
 ###  Registro Empresa
-Implementar en java el sistema de registro de una empresa. Este sistema de registro permite exportar un String con el listado de todas las personas asociadas a la empresa. En el String, en cada línea (usar „\n‟ para concatenar los Strings) se muestra el cargo de la persona, su nombre, apellido y edad. En el sistema existen distintos tipos de roles: el empleado, del cual, además del nombre, apellido y edad, se guarda el número de legajo y su sueldo; el usuario final, del cual se guarda el nombre, apellido, edad, nombre de usuario y password; y el jerárquico, del cual se registra su nombre, apellido, edad, número de legajo, sueldo y una lista de empleados a cargo.
+Implementar en java el sistema de registro de una empresa. Este sistema de registro permite exportar un String con el listado de todas las personas asociadas a la empresa. 
+
+NOTA: \n permite un salto de linea sin romper la String (Se pueden agregar espacios antes o despues de "\n"), ej: "esto esta arriba\nesto esta abajo
+
+En el String [en cada línea (usar "\n" para concatenar los Strings)] se muestra: 
+* el cargo de la persona. 
+* su nombre. 
+* apellido.
+* edad. 
+
+En el sistema existen distintos tipos de roles: 
+* el **empleado**, del cual, además del nombre, apellido y edad, se guarda el número de legajo y su sueldo; 
+* el **usuario final**, del cual se guarda el nombre, apellido, edad, nombre de usuario y password; 
+* el **jerárquico**, del cual se registra su nombre, apellido, edad, número de legajo, sueldo y una lista de empleados a cargo.
 
 🔼 [Volver a los enunciados](#enunciados)
