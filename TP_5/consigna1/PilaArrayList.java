@@ -8,12 +8,12 @@ import java.util.ArrayList;
   * - Al usar un vector para almacenar, seria de caracter ESTATICO (Tiene un limite de capacidad).
 */
 
-public class Pila {
+public class PilaArrayList {
   private ArrayList<Object> elementos;
   /**
    * Instancia una Pila vacia
    */
-  public Pila(){
+  public PilaArrayList(){
     elementos = new ArrayList<>();
   }
 
@@ -42,6 +42,7 @@ public class Pila {
    * @return el ultimo elemento agregado
    */
   public Object top(){
+    if(size() == 0) return "La pila esta vacia...";
     return elementos.get(size()-1);
   }
 
