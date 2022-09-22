@@ -5,7 +5,6 @@ import java.util.ArrayList;
 /*
   * NOTA: 
   * - La pila que voy a implementar es de tipo DINAMICA (ya que no tiene limitantes en capacidad (debido a que voy a usar ArrayList)).
-  * - Al usar un vector para almacenar, seria de caracter ESTATICO (Tiene un limite de capacidad).
 */
 
 public class PilaArrayList {

@@ -19,7 +19,6 @@ public class Main{
     System.out.println("El tamaño de la pila es de: " + pila.size());
     testing = pila.copy();
     System.out.println(testing);
-    testing.clear();
     testing = pila.reverse();
     System.out.println(testing);
 
