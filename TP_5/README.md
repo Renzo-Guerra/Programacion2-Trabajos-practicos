@@ -50,6 +50,7 @@ Para poder sembrar un cereal en un lote, éste debe contener determinados minera
 * granos de cosecha gruesa (como girasol, maíz, . . . )
 * granos de cosecha fina (como trigo, avena, . . . )
 * pasturas (como alfalfa, trébol subterráneo, . . . ) 
+
 Un lote satisface los requerimientos de un cereal si contiene todos los minerales que requiere ese cereal. Para el caso de las pasturas, poseen la restricción adicional de no poder sembrarse en lotes menores a una superficie de 50 hectáreas.
 
 Adicionalmente, los lotes son clasificados como "especiales" cuando contienen ciertos minerales de interés primario para la cooperativa, y "comunes" cuando contienen sólo minerales secundarios en la composición de la tierra. La cooperativa debe poder consultar si un lote es común o especial.
