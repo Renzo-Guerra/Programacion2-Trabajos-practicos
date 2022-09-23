@@ -47,4 +47,14 @@ public class Ciudad {
   public boolean gastaMasDeLoQueRecauda(){
     return (getGastosRealizados() > sumaTotalDeImpuestos());
   }
+
+  @Override
+  public String toString() {
+    return "nombre: " + getNombre() + ", cantidad habitantes: " + getCantHabitantes();
+  }
+  @Override
+  public boolean equals(Object obj) {
+    Ciudad ciudad = (Ciudad)obj;
+    return (ciudad.getNombre() == this.getNombre());
+  }
 }

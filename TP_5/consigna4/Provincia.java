@@ -1,69 +1,64 @@
 package consigna4;
 
+import java.util.ArrayList;
+
 public class Provincia {
   private String nombre;
-  private Ciudad[] ciudades;
+  private ArrayList<Ciudad> ciudades;
   
-  public Provincia(String nombre, Ciudad[] ciudades){
+  public Provincia(String nombre, Ciudad ciudad){
     setNombre(nombre);
-    this.ciudades = new Ciudad[ciudades.length];
-    setCiudades(ciudades);
+    ciudades = new ArrayList<>();
   }
 
   // Setters
-  private void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-  private void setCiudades(Ciudad[] ciudades) {
-    for(int i=0;i<ciudades.length;i++){
-      this.ciudades[i] = ciudades[i];
+  private void setNombre(String nombre) {this.nombre = nombre;}
+  
+  public void agregarCiudad(Ciudad ciudad_agregar){
+    if((ciudad_agregar != null) && (!ciudades.contains(ciudad_agregar))){
+      ciudades.add(ciudad_agregar);
     }
   }
 
   // Getters
-  public String getNombre() {
-    return nombre;
-  }
-  public Ciudad[] getCiudades() {
-    return ciudades;
-  }
+  public String getNombre() {return nombre;}
 
-  public int contarCiudades(){
-    return getCiudades().length;
-  }
+  public int getCantidadCiudades(){return ciudades.size();}
 
   public boolean tieneMasDeLaMitadEnDeficit(){
-    Ciudad[] ciudades = getCiudades();
     int contador = 0;
-    for(int i=0;i<contarCiudades();i++){
-      if(ciudades[i].gastaMasDeLoQueRecauda()){
+    for(int i=0;i<getCantidadCiudades();i++){
+      if(ciudades.get(i).gastaMasDeLoQueRecauda()){
         contador++;
       }
     }
 
-    return (contador == 0)? false : ((contarCiudades() / 2) <= contador);
+    return (contador == 0)? false : ((getCantidadCiudades() / 2) <= contador);
   }
 
   public String obtenerCiudadesQueGastanMasDeLoQueRecaudan(){
-    Ciudad[] ciudades = getCiudades();
     String nombres = "";
     
-    for(int i=0; i<contarCiudades();i++){
-      if(ciudades[i].gastaMasDeLoQueRecauda()){
-        nombres += ciudades[i].getNombre() + " - ";
+    for(int i=0; i<getCantidadCiudades();i++){
+      if(ciudades.get(i).gastaMasDeLoQueRecauda()){
+        nombres += ciudades.get(i).getNombre() + " - ";
       }
     }
     return (nombres == "")? "Ninguna ciudad gasta mas de lo que recauda.": nombres;
   }
   
   public String obtenerNombresDeLasCiudades(){
-    Ciudad[] ciudades = getCiudades();
     String nombres = "";
     
-    for(int i=0; i<contarCiudades();i++){
-      nombres += ciudades[i].getNombre() + " - ";
+    for(int i=0; i<getCantidadCiudades();i++){
+      nombres += ciudades.get(i).getNombre() + " - ";
     }
     
     return nombres;
+  }
+
+  @Override
+  public String toString() {
+    return "nombre: " + this.getNombre() + ", ciudades: " + obtenerNombresDeLasCiudades();
   }
 }
