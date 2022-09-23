@@ -21,12 +21,12 @@ public class Main {
     //Creamos el pais Argentina
     Pais argentina = new Pais("Argentina", new Provincia[] {buenos_aires, rio_negro});
 
-    // System.out.println("El dinero recaudado por impuestos en tandil es de: $" + tandil.sumaTotalDeImpuestos());
-    // tandil.agregarDineroAMonto1(10000);
-    // System.out.println("El dinero recaudado por impuestos en tandil es de: $" + tandil.sumaTotalDeImpuestos());
-    // System.out.println("El dinero que gasta en obras publicas es de: $" + tandil.getGastos_realizados());
-    // System.out.println("Gasta mas dinero que el recaudado por los impuestos: " + tandil.gastaMasDeLoQueRecauda());
-    
+    System.out.println("El dinero recaudado por impuestos en tandil es de: $" + tandil.sumaTotalDeImpuestos());
+    tandil.agregarDineroAMonto1(10000);
+    System.out.println("El dinero recaudado por impuestos en tandil es de: $" + tandil.sumaTotalDeImpuestos());
+    System.out.println("El dinero que gasta en obras publicas es de: $" + tandil.getGastos_realizados());
+    System.out.println("Gasta mas dinero que el recaudado por los impuestos: " + tandil.gastaMasDeLoQueRecauda());
+    System.out.println("");
     comprobarDatosProvincia(buenos_aires);
     comprobarDatosProvincia(rio_negro);
     comprobarDatosPais(argentina);
