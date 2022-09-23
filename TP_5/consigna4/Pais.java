@@ -1,42 +1,28 @@
 package consigna4;
 
+import java.util.ArrayList;
+
 public class Pais {
   private String nombre;
-  private Provincia[] provincias;
+  private ArrayList<Provincia> provincias;
 
-  public Pais(String nombre, Provincia[] provincias){
+  public Pais(String nombre){
     setNombre(nombre);
-    this.provincias = new Provincia[provincias.length];
-    setProvincias(provincias);
+    provincias = new ArrayList<>();
   }
   // Setters
-  private void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-  private void setProvincias(Provincia[] provincias){
-    for(int i=0;i<provincias.length;i++){
-      this.provincias[i] = provincias[i];
-    }
-  }
+  private void setNombre(String nombre){this.nombre = nombre;}
 
   // Getters
-  public String getNombre() {
-    return nombre;
-  }
-  public Provincia[] getProvincias() {
-    return provincias;
-  }
+  public String getNombre(){return nombre;}
 
   // Metodos
-  public int contarProvincias(){
-    return getProvincias().length;
-  }
+  public int contarProvincias(){return provincias.size();}
 
   public String obtenerCiudadesQueGastanMasDeLoQueRecaudan(){
-    Provincia[] provincias = getProvincias();
     String ciudades = "";
     for(int i=0; i<contarProvincias();i++){
-      ciudades += provincias[i].getNombre() + ": {" + provincias[i].obtenerCiudadesQueGastanMasDeLoQueRecaudan() + "}. ";
+      ciudades += provincias.get(i).getNombre() + ": {" + provincias.get(i).obtenerCiudadesQueGastanMasDeLoQueRecaudan() + "}. ";
     }
 
     return ciudades;
