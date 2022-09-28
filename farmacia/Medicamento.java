@@ -12,6 +12,7 @@ public class Medicamento {
     setNombre(nombre);
     setLaboratorio(laboratorio);
     setPrecio(precio);
+    sintomas = new ArrayList<>();
   }
 
   // Setters
@@ -22,10 +23,16 @@ public class Medicamento {
   public String getNombre(){return nombre;}
   public String getLaboratorio(){return laboratorio;}
   public double getPrecio(){return precio;}
-
+  public ArrayList<String> getSintomas(){return new ArrayList<>(sintomas);}
+  
   public void agregarSintoma(String nuevo_sintoma){
     if((nuevo_sintoma != null) && (!sintomas.contains(nuevo_sintoma))){
       sintomas.add(nuevo_sintoma);
     }
+  }
+
+  @Override
+  public String toString() {
+    return "Medicamento - {nombre: " + getNombre() + ", laboratorio: " + getLaboratorio() + ", precio: " + getPrecio() + ", sintomas: " + getSintomas() + "}\n";
   }
 }
