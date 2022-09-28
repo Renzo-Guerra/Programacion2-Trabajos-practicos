@@ -9,6 +9,7 @@ public class Ciudad {
 
   public Ciudad(String nombre, long gastos_realizados){
     setNombre(nombre);
+    contribuyentes = new ArrayList<>();
     setGastosRealizados(gastos_realizados);
   }
 
@@ -25,12 +26,12 @@ public class Ciudad {
   public long getGastosRealizados(){return gastos_realizados;}
   public String getNombre(){return nombre;}
 
-  // Metodos
-  /*
-   * Estos son los metodos publicos que devuelven informacion relevante. 
-   * 
-  */
-  
+  // Metodos  
+  public void agregarContribuyente(Contribuyente nuevo_contribuyente){
+    if((nuevo_contribuyente != null) && !contribuyentes.contains(nuevo_contribuyente)){
+      contribuyentes.add(nuevo_contribuyente);
+    }
+  }
   public void agregarDineroAGastosRealizados(long dinero){
     if(dinero >= 0){
       this.gastos_realizados += dinero;
@@ -38,6 +39,7 @@ public class Ciudad {
   }
   public double sumaTotalDeImpuestos(){
     double total_impuestos = 0;
+    
     for (Contribuyente contribuyente : contribuyentes) {
       total_impuestos += contribuyente.getMontoTotalPagar();
     }
