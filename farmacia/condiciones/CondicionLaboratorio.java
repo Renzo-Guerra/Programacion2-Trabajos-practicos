@@ -11,7 +11,7 @@ public class CondicionLaboratorio extends Condicion{
 
   @Override
   public boolean esValida(Medicamento medicamento) {
-    return medicamento.getLaboratorio() == this.laboratorio;
+    return medicamento.getLaboratorio().equals(this.laboratorio);
   }
   
 }
