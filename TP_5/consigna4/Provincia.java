@@ -6,7 +6,7 @@ public class Provincia {
   private String nombre;
   private ArrayList<Ciudad> ciudades;
   
-  public Provincia(String nombre, Ciudad ciudad){
+  public Provincia(String nombre){
     setNombre(nombre);
     ciudades = new ArrayList<>();
   }
@@ -60,5 +60,10 @@ public class Provincia {
   @Override
   public String toString() {
     return "nombre: " + this.getNombre() + ", ciudades: " + obtenerNombresDeLasCiudades();
+  }
+  @Override
+  public boolean equals(Object obj) {
+    Provincia provincia = (Provincia)obj;
+    return (provincia.getNombre() == this.getNombre());
   }
 }
