@@ -18,7 +18,11 @@ public class Pais {
 
   // Metodos
   public int contarProvincias(){return provincias.size();}
-
+  public void agregarProvincia(Provincia nueva_provincia){
+    if((nueva_provincia != null) && !provincias.contains(nueva_provincia)){
+      provincias.add(nueva_provincia);
+    }
+  }
   public String obtenerCiudadesQueGastanMasDeLoQueRecaudan(){
     String ciudades = "";
     for(int i=0; i<contarProvincias();i++){
