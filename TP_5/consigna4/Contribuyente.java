@@ -17,15 +17,14 @@ public class Contribuyente {
   public void setIdentificacionTributaria(long identificacion_tributaria){this.identificacion_tributaria = identificacion_tributaria;}
   public void setMontoFijo(double monto_fijo){this.monto_fijo = monto_fijo;}
   // Getter
-  public String getNombre(){return nombre;}
-  public long getIdentificacionTributaria(){return identificacion_tributaria;}
-  public double getMontoFijo(){return monto_fijo;}
+  public String getNombre(){return this.nombre;}
+  public long getIdentificacionTributaria(){return this.identificacion_tributaria;}
+  public double getMontoFijo(){return this.monto_fijo;}
   /**
    * Calcula lo que el contribuyente debe pagar al estado
    * @return monto final a pagar
    */
   public double getMontoTotalPagar(){
-    return getMontoFijo();
+    return this.getMontoFijo();
   }
-  
 }
