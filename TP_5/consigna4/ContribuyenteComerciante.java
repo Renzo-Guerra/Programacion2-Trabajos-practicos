@@ -34,10 +34,11 @@ public class ContribuyenteComerciante extends Contribuyente{
     return acumulador;
   }
   public double getPorcentajePagar(){
-    return montoTotalVentas() / 100 * getPorcentajeVentas();
+    return this.montoTotalVentas() / 100 * this.getPorcentajeVentas();
   }
+
   @Override
   public double getMontoTotalPagar(){
-    return ((getMontoFijo() - (getMontoFijo() * 100 / getPorcentajePagar())) + (montoTotalVentas() / 100 * getPorcentajeVentas())); 
+    return ((this.getMontoFijo() / 100 * this.getPorcentajeMontoFijo()) + this.getPorcentajePagar()); 
   }
 }

@@ -10,11 +10,13 @@ public class ContribuyenteProgramador extends Contribuyente{
   public ContribuyenteProgramador(String nombre, long codigo_identificacion_tributaria, double monto_fijo) {
     super(nombre, codigo_identificacion_tributaria, monto_fijo);
     desarrollo_software = new ArrayList<>();
+    setPorcentajeMontoFijo(20);
+    setPorcentajeFacturado(2);
   }
 
   // Setters
-  public void setPorcentajeMontoFijo(double porcentaje_monto_fijo){ContribuyenteProgramador.porcentaje_monto_fijo = porcentaje_monto_fijo;}
-  public void setPorcentajeFacturado(double porcentaje_facturado){ContribuyenteProgramador.porcentaje_facturado = porcentaje_facturado;}
+  public static void setPorcentajeMontoFijo(double porcentaje_monto_fijo){ContribuyenteProgramador.porcentaje_monto_fijo = porcentaje_monto_fijo;}
+  public static void setPorcentajeFacturado(double porcentaje_facturado){ContribuyenteProgramador.porcentaje_facturado = porcentaje_facturado;}
   // Getters
   public double getPorcentajeMontoFijo(){return porcentaje_monto_fijo;}
   public double getPorcentajeFacturado() {return porcentaje_facturado;}
@@ -34,11 +36,11 @@ public class ContribuyenteProgramador extends Contribuyente{
     return acumulador;
   }
   public double getPorcentajePagar(){
-    return montoTotalDesarrolloSoftware() / 100 * getPorcentajeFacturado();
+    return this.montoTotalDesarrolloSoftware() / 100 * this.getPorcentajeFacturado();
   }
 
   @Override
   public double getMontoTotalPagar(){
-    return ((getMontoFijo() - (getMontoFijo() * 100 / getPorcentajePagar())) + (montoTotalDesarrolloSoftware() / 100 * getPorcentajeFacturado())); 
+    return (this.getMontoFijo() / 100 * this.getPorcentajeMontoFijo()) + (this.montoTotalDesarrolloSoftware() / 100 * this.getPorcentajeFacturado()); 
   }
 }
