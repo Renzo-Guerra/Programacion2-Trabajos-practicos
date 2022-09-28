@@ -32,7 +32,7 @@ public class Farmacia{
         resultados.add(medicamento);
       }
     }
-    
-    return medicamentos;
+
+    return resultados;
   }
 }
