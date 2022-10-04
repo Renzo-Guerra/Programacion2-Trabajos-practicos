@@ -2,6 +2,7 @@ package farmacia;
 
 import farmacia.condiciones.CondicionLaboratorio;
 import farmacia.condiciones.CondicionNombre;
+import farmacia.condiciones.CondicionPrecioMaximoPagar;
 
 public class Main {
   public static void main(String[] args) {
@@ -73,6 +74,6 @@ public class Main {
 
     System.out.println(farmacia.getMedicamentos(new CondicionLaboratorio("umbrella")));
     System.out.println(farmacia.getMedicamentos(new CondicionNombre("aspirina")));
-    
+    System.out.println(farmacia.getMedicamentos(new CondicionPrecioMaximoPagar(3345)));
   }
 }
