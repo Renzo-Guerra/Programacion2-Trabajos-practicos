@@ -13,3 +13,4 @@ Se publicarán TODOS los trabajos prácticos que iremos viendo en el cuatrimestr
   * [CONSIGNAS TP 3](./TP_3/README.md)
   * [CONSIGNAS TP 4](./TP_4/README.md)
   * [CONSIGNAS TP 5](./TP_5/README.md)
+  * [CONSIGNAS TP 6](./TP_6/README.md)
