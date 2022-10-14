@@ -1,0 +1,26 @@
+package TP_6.consigna4.ejercicio2;
+
+import TP_6.consigna4.colaEspera.ElementoCola;
+
+public class Proceso implements ElementoCola{
+  private String nombre;
+  private double memoriaRequerida;
+
+  public Proceso(String nombre, double memoriaRequerida){
+    setNombre(nombre);
+    setMemoriaRequerida(memoriaRequerida);
+  }
+
+  // Setters
+  public void setNombre(String nombre){this.nombre = nombre;}
+  public void setMemoriaRequerida(double memoriaRequerida){this.memoriaRequerida = memoriaRequerida;}
+
+  // Getters
+  public String getNombre(){return nombre;}
+  public double getMemoriaRequerida(){return memoriaRequerida;}
+
+  @Override
+  public boolean esMasImportante(ElementoCola elementoAComparar) {
+    return this.getMemoriaRequerida() > ((Proceso)elementoAComparar).getMemoriaRequerida();
+  }
+}
