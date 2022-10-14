@@ -92,7 +92,8 @@ El sistema debe ser útil para los administradores del vivero para, por ejemplo,
 * Todas las plantas a las que se conozca vulgarmente como “lengua de suegra” 
 * Todas las plantas cuya clasificación sea “Crassula” 
 * Todas las plantas que requieran un nivel de sol superior a 5 y riego inferior a 3 
-* Todas las plantas que requieran un nivel de sol inferior a 4 y riego superior a 4 Todas las plantas de interior que necesiten poco riego (inferior a 3) 
+* Todas las plantas que requieran un nivel de sol inferior a 4 y riego superior a 4 
+* Todas las plantas de interior que necesiten poco riego (inferior a 3) 
 * Cualquier combinación lógica de las formas anteriores
 
 🔼 [Volver a los enunciados](#enunciados)
