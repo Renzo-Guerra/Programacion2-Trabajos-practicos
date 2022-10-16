@@ -112,8 +112,10 @@ Por ejemplo:
   - El “chocolate” tiene una fortaleza de 1, ocupa 1 casillero del tablero y tiene poder de destrucción 0; 
   - La “piedra” tiene fortaleza 6, ocupa 1 casillero de tablero y tiene poder de destrucción 0;
   - El “caramelo a rayas” ocupa 1 casillero del tablero, tiene fortaleza 1, y un poder de destrucción de 10; 
-  - La “torta” ocupa 4 casilleros, tiene fortaleza 8 y poder de destrucción 4, y así con cada una de las distintas fichas. 
+  - La “torta” ocupa 4 casilleros, tiene fortaleza 8 y poder de destrucción 4
 ```
+Y así con cada una de las distintas fichas. 
+
 También existen fichas especiales cuyo poder de destrucción se calcula como la fortaleza de la ficha, dividido el espacio que ocupan.
 
 Un tablero posee:
