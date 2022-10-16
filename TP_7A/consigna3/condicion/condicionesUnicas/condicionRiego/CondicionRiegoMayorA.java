@@ -1,0 +1,18 @@
+package TP_7A.consigna3.condicion.condicionesUnicas.condicionRiego;
+
+import TP_7A.consigna3.Planta;
+import TP_7A.consigna3.condicion.Condicion;
+
+public class CondicionRiegoMayorA extends Condicion{
+  private int riego;
+
+  public CondicionRiegoMayorA(int numeroMayorA){
+    riego = numeroMayorA;
+  }
+
+  @Override
+  public boolean cumple(Planta planta) {
+    return planta.getRiego() > this.riego;
+  }
+  
+}
