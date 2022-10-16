@@ -88,7 +88,7 @@ Ejemplo:
 ```
 El sistema debe ser útil para los administradores del vivero para, por ejemplo, cuando llega un cliente poder ofrecerle las plantas que cumplen con sus requerimientos:
 
-* Todas las plantas cuyo nombre científico incluya la palabra “auereum” 
+* Todas las plantas cuyo nombre científico incluya la palabra “aureum” 
 * Todas las plantas a las que se conozca vulgarmente como “lengua de suegra” 
 * Todas las plantas cuya clasificación sea “Crassula” 
 * Todas las plantas que requieran un nivel de sol superior a 5 y riego inferior a 3 
