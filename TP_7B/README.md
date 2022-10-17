@@ -1,4 +1,4 @@
-## Trabajo Práctico Nº 7 (parte A) – 2022
+## Trabajo Práctico Nº 7 (parte B) – 2022
 
 _Para cada una de los siguientes problemas **identificar los objetos que intervienen, su estado y su comportamiento**. Implementar en Java_
 
@@ -24,7 +24,7 @@ Los archivos se definen por:
 Los directorios tienen:
 * un nombre.
 * una fecha de creación.
-* un conjunto de archivos 
+* un conjunto de archivos.
 * un conjunto de sub-directorios. 
 
 El tamaño de un directorio está dado por _"el tamaño de sus sub-directorios, sus archivos, sus links y sus archivos comprimidos"_. 
@@ -51,9 +51,8 @@ ___
 Una compañía de envíos posee distintos tipos de servicios de envíos, entre los mismos se encuentran:
 * Envío de paquetes y cartas, una carta/paquete posee:
   * un destinatario con su dirección.
-  * un remitente con su dirección,
-  * si la retiran en la sucursal de destino o la envían a
-domicilio, 
+  * un remitente con su dirección.
+  * si la retiran en la sucursal de destino o la envían a domicilio. 
   * y su peso.
 * Combo Postal, es una modalidad por la cual se agrupa un conjunto de envíos (cualquier tipo de envío). 
   * (**Todos los envíos incluidos en un combo postal deben tener la misma ciudad de destino.**)
