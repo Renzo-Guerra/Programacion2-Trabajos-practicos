@@ -16,3 +16,4 @@ Se publicarán TODOS los trabajos prácticos que iremos viendo en el cuatrimestr
   * [CONSIGNAS TP 6](./TP_6/README.md)
   * [CONSIGNAS TP 7A](./TP_7A/README.md)
   * [CONSIGNAS TP 7B](./TP_7B/README.md)
+  * [CONSIGNAS TP 8](./TP_8/README.md)
