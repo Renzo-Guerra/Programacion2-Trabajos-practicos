@@ -27,9 +27,9 @@ public class Alumno implements Comparable<Alumno>{
   @Override
   public int compareTo(Alumno a) {
     // Se define por cual atributo se van a ordenar los elementos
-    return this.getApellido().compareTo(a.getApellido());
+    return this.getDni() - a.getDni();
   }
-
+  
   @Override
   public String toString() {
     return "Nombre: " + getNombre() + ", apellido: " + getApellido() + ", dni: " + getDni() + ", edad: " + getEdad() + "\n";

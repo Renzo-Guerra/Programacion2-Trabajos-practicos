@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Main {
   public static void main(String[] args) {
-    ArrayList<Alumno> alumnos = new ArrayList<>();
+    Escuela escuela = new Escuela();
 
     Alumno al1 = new Alumno("Julian", "Torres", 22333444, 30);
     Alumno al2 = new Alumno("Agustina", "Palacios", 20111222, 23);
@@ -14,15 +14,13 @@ public class Main {
     Alumno al5 = new Alumno("Valentino", "Otrozqui", 16777666, 43);
     Alumno al6 = new Alumno("Celeste", "Gonzalez", 20222333, 32);
 
-    alumnos.add(al1);
-    alumnos.add(al2);
-    alumnos.add(al3);
-    alumnos.add(al4);
-    alumnos.add(al5);
-    alumnos.add(al6);
+    escuela.agregarAlumno(al1);
+    escuela.agregarAlumno(al2);
+    escuela.agregarAlumno(al3);
+    escuela.agregarAlumno(al4);
+    escuela.agregarAlumno(al5);
+    escuela.agregarAlumno(al6);
 
-    Collections.sort(alumnos);
-
-    System.out.println(alumnos);
+    System.out.println(escuela.getAlumnos());
   }
 }
