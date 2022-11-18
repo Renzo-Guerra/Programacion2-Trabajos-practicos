@@ -1,5 +1,9 @@
 package TP_8.consigna1;
 
+ /**
+  * Nota, me anda todo mal jaja, el filtro no me trae las cosas, no se que onda
+  */
+
 import java.time.LocalDate;
 import TP_8.consigna1.filtro.*;
 import TP_8.consigna1.filtro.filtrosCombinados.*;
